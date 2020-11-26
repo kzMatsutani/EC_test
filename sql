@@ -31,7 +31,7 @@ point //ポイント
 shipping //出荷目安日
 category //カテゴリ
 sub_category //サブカテゴリ
-public_status //商品掲載状況 0でメイン非掲載 1でメイン掲載
+public_status //掲載状況 0でメイン非掲載 1でメイン掲載
 sales_status //販売状況 0で販売中　1で売り切れ中　2で予約受付中　3で
 created_at //作成日時
 updated_at //更新日時
@@ -42,7 +42,11 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     price INT UNSIGNED NOT NULL,
-    img TEXT,
+    img1 TEXT,
+    img2 TEXT,
+    img3 TEXT,
+    img4 TEXT,
+    img5 TEXT,
     title TEXT NOT NULL,
     body TEXT NOT NULL,
     qty SMALLINT UNSIGNED NOT NULL,
@@ -58,9 +62,48 @@ CREATE TABLE products (
 );
 
 INSERT INTO products
-(name, price, img, title, body, qty, point, shipping, public_status, sales_status)
-VALUES ('test', 1000, '', 'タイトル', 'ボディ', 10, 20, 3, 1, 1);
+(name, price, title, body, qty, point, shipping, public_status, sales_status)
+VALUES ('test', 1000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1);
 
+categoriesテーブル情報
+id //自動連番
+name //カテゴリー名
+img //カテゴリーバナー
+public_status //掲載状況 0でメイン非掲載 1でメイン掲載
+created_at //作成日時
+updated_at //更新日時
+delete_flg //論理削除
+
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT,
+    public_status TINYINT UNSIGNED NOT NULL,
+    created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at TIMESTAMP(6) NULL DEFAULT NULL,
+    delete_flg BOOLEAN DEFAULT FALSE
+)
+
+sub_categoriesテーブル構成
+id //自動連番
+name //サブカテゴリー名
+category_id //親カテゴリーid
+img //カテゴリーバナー
+public_status //掲載状況 0でメイン非掲載 1でメイン掲載
+created_at //作成日時
+updated_at //更新日時
+delete_flg //論理削除
+
+CREATE TABLE sub_categoryies (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    category_id BIGINT,
+    img TEXT,
+    public_status TINYINT UNSIGNED NOT NULL,
+    created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at TIMESTAMP(6) NULL DEFAULT NULL,
+    delete_flg BOOLEAN DEFAULT FALSE
+);
 
 
 
@@ -83,6 +126,7 @@ city //市区町村
 address //町名番地
 other //マンション等
 status //状況
+point //所有ポイント
 payment_info //前回の支払い方法
 memo //備考
 last_login_date //最終ログイン日

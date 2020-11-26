@@ -11,15 +11,14 @@ class Product extends Model
                 ' SELECT '
                     . ' id , '
                     . ' name , '
-                    . ' sub_name , '
-                    . ' day , '
                     . ' price , '
                     . ' img , '
-                    . ' description , '
+                    . ' qty , '
+                    . ' point , '
                     . ' DATE_FORMAT(created_at, \'%Y-%m-%d %k:%i:%s\') AS created_at , '
                     . ' DATE_FORMAT(updated_at, \'%Y-%m-%d %k:%i:%s\') AS updated_at '
                 . ' FROM '
-                    . ' product '
+                    . ' products '
                 . ' WHERE '
                     . ' delete_flg = 0 '
             ;
@@ -72,7 +71,7 @@ class Product extends Model
                     . ' DATE_FORMAT(pr.created_at, \'%Y-%m-%d %k:%i:%s\') AS created_at , '
                     . ' DATE_FORMAT(pr.updated_at, \'%Y-%m-%d %k:%i:%s\') AS updated_at '
                 . ' FROM '
-                    . ' product pr '
+                    . ' products pr '
                 . ' LEFT JOIN '
                     . ' product_payment pp '
                 . ' ON '
@@ -137,7 +136,7 @@ class Product extends Model
                 ' SELECT '
                     . ' * '
                 . ' FROM '
-                    . ' product '
+                    . ' products '
                 . ' WHERE '
                     . ' id = ? '
                 . ' AND '
@@ -221,7 +220,7 @@ class Product extends Model
             //商品のデータを取得
             $sql =
                 ' UPDATE '
-                    . ' product '
+                    . ' products '
                 . ' SET '
                     . ' name = ? , '
                     . ' sub_name = ? , '
@@ -283,7 +282,7 @@ class Product extends Model
             parent::connect();
             //商品のデータを新規登録
             $sql =
-                ' INSERT INTO product ( '
+                ' INSERT INTO products ( '
                     . ' name , '
                     . ' sub_name , '
                     . ' day , '
@@ -344,7 +343,7 @@ class Product extends Model
                 $image_path = mb_convert_encoding(date('YmdGis') . '_' . $image['name'], 'utf8', 'cp932');
                 $sql =
                     ' UPDATE '
-                        . ' product '
+                        . ' products '
                     . ' SET '
                         . ' img = ? , '
                         . ' updated_at = NOW(6) '
@@ -386,7 +385,7 @@ class Product extends Model
             //商品のデータを取得
             $sql =
                 ' UPDATE '
-                    . ' product '
+                    . ' products '
                 . ' SET '
                     . ' delete_flg = 1 '
                 . ' WHERE '

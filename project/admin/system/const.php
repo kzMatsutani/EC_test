@@ -3,21 +3,11 @@
 テストのローカルホスト用
 */
 define('HOST', 'localhost');
-define('DBNAME', 'k_matsutani');
+define('DBNAME', 'EC_test');
 define('DBUSER', 'root');
 define('DBPASS', '');
 //イメージの絶対パス
-define('ABSOLUTE_PRODUCT_IMAGE_PATH', '/Applications/XAMPP/htdocs/training/tougan-matsutani/img/product/');
-
-/*
-EBAサーバ本番環境
-*/
-// define('HOST', 'localhost');
-// define('DBNAME', 'k_matsutani');
-// define('DBUSER', 'root');
-// define('DBPASS', 'GomJR5nwq_lm');
-// //イメージの絶対パス
-// define('ABSOLUTE_PRODUCT_IMAGE_PATH', '/var/www/html/training/tougan-matsutani/img/product/');
+define('ABSOLUTE_PRODUCT_IMAGE_PATH', '/Applications/XAMPP/htdocs/EC/project/img/product/');
 
 
 /*

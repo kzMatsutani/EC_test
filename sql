@@ -57,6 +57,13 @@ CREATE TABLE products (
     delete_flg BOOLEAN DEFAULT FALSE
 );
 
+INSERT INTO products
+(name, price, img, title, body, qty, point, shipping, public_status, sales_status)
+VALUES ('test', 1000, '', 'タイトル', 'ボディ', 10, 20, 3, 1, 1);
+
+
+
+
 ユーザーテーブル構成
 id //自動連番のid
 password //ログイン時のパスワード

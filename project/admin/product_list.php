@@ -6,7 +6,7 @@ $product = new Product();
 
 //商品削除ボタンが押された場合
 if (isset($_POST['delete'])) {
-    if ($product->deleteProduct($_POST['delete']) === false) {
+    if ($product->deleteProduct($_POST['delete']) == false) {
         header('Location: error.php?message=fail&word=deleteProduct');
         exit;
     }
@@ -20,11 +20,12 @@ if (($product_list = $product->getProductList($column, $order)) === false) {
     header('Location: error.php?message=fail&word=getProductList');
     exit;
 }
+
 //支払い方法情報の取得
-if (!($payment = $product->getPaymentList())) {
-    header('Location: error.php?message=fail&word=getPayment');
-    exit;
-}
+// if (!($payment = $product->getPaymentList())) {
+//     header('Location: error.php?message=fail&word=getPayment');
+//     exit;
+// }
 
 //商品検索
 if (isset($_GET['name'])) {

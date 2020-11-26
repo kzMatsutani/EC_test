@@ -12,7 +12,7 @@ class Product extends Model
                     . ' id , '
                     . ' name , '
                     . ' price , '
-                    . ' img , '
+                    . ' img1 , '
                     . ' qty , '
                     . ' point , '
                     . ' DATE_FORMAT(created_at, \'%Y-%m-%d %k:%i:%s\') AS created_at , '

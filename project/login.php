@@ -13,7 +13,7 @@ if (!empty($_POST['login'])) {
         //loginメソッド内でDB内のid,passの照合を行いOKならtrue、NGならエラー文が返ってくる
         $error = $user->loginUser($_POST['id'], $_POST['pass']);
     }
-    
+
     if (($error === true)) {
         //トップから商品をカートに入れる選択をした場合はカートに商品を入れてcart.phpに遷移
         if (!empty($_POST['product_id']) && !empty($_POST['num'])) {
@@ -41,7 +41,7 @@ if (!empty($_POST['login'])) {
 <?php require_once('./template/header.php'); ?>
 <div class="login">
     <div class="login-container">
-        <h2>桜物産 会員ログイン</h2>
+        <h2>会員ログイン</h2>
         <p class="error"><span><?=isset($error) ? $error : ''?></span></p>
         <form action="" method="post">
             <table>

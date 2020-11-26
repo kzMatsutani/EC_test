@@ -13,10 +13,7 @@ if (!empty($_POST['uploadImg'])) {
 
 //支払情報の取得
 $id = isset($_GET['id']) ? $_GET['id'] : '';
-if (!($payment = $product->getPaymentList($id))) {
-    header('Location: error.php?message=fail&word=getPayment');
-    exit;
-}
+
 //DBから取得した支払い方法の選択を置き換え、POSTが存在すればPOSTを代入。
 $selected_payment = !empty($_POST['selected_payment']) ? $_POST['selected_payment'] : array_column($payment, 'status', 'id');
 
@@ -48,27 +45,39 @@ $item = $_POST + $item;
                         <td><input type="text" name="name" value="<?=isset($item['name']) ? h($item['name']) : ''?>"></td>
                     </tr>
                     <tr>
-                        <th>商品名(サブ)</th>
-                        <td><input type="text" name="sub_name" value="<?=isset($item['sub_name']) ? h($item['sub_name']) : ''?>"></td>
-                    </tr>
-                    <tr>
-                        <th>日数</th>
-                        <td><input type="text" name="day" value="<?=isset($item['day']) ? h($item['day']) : ''?>"></td>
-                    </tr>
-                    <tr>
                         <th>価格</th>
                         <td><input type="text" name="price" value="<?=isset($item['price']) ? h($item['price']) : ''?>"></td>
                     </tr>
                     <tr>
+                        <th>タイトル</th>
+                        <td><input type="text" name="title" value="<?=isset($item['title']) ? h($item['title']) : ''?>"></td>
+                    </tr>
+                    <tr>
+                        <th>ポイント</th>
+                        <td><input type="text" name="point" value="<?=isset($item['point']) ? h($item['point']) : ''?>"></td>
+                    </tr>
+                    <tr>
+                        <th>出荷目安</th>
+                        <td><input type="text" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
+                    </tr>
+                    <tr>
+                        <th>掲載状況</th>
+                        <td><input type="text" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
+                    </tr>
+                    <tr>
+                        <th>販売状況</th>
+                        <td><input type="text" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
+                    </tr>
+                    <tr>
                         <th>説明文</th>
-                        <td><textarea name="description"><?=isset($item['description']) ? h($item['description']) : ''?></textarea></td>
+                        <td><textarea name="body"><?=isset($item['body']) ? h($item['body']) : ''?></textarea></td>
                     </tr>
                     <tr>
                         <th>支払い方法</th>
                         <td>
-                            <?php foreach ($payment as $val) :?>
+                            <!-- <?php foreach ($payment as $val) :?>
                                 <label><input type="checkbox" name="selected_payment[<?=$val['id']?>]" value="1"<?=isset($selected_payment[$val['id']]) && $selected_payment[$val['id']] == 1 ? ' checked' : ''?>><?=$val['name']?></label>
-                            <?php endforeach; ?>
+                            <?php endforeach; ?> -->
                         </td>
                     </tr>
                 </table>

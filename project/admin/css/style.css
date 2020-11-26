@@ -1,0 +1,633 @@
+@charset "UTF-8";
+
+/*-------------------------
+adminページ	初期値
+-------------------------*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color:#BEF5B7;
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #333;
+    font-size: 1.6rem;
+    line-height: 2;
+    font-feature-settings: "palt"1;
+    text-size-adjust: 100%;
+}
+
+a,
+a:link,
+a:hover {
+    text-decoration: none;
+}
+
+a:link {
+    color: #800080;
+}
+
+a:visited {
+    color: #800080;
+}
+
+a:hover,
+a:active {
+    color: #666;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+em {
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+td,
+th {
+    font-weight: normal;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+}
+
+/*-------------------------
+    adminグローバル
+-------------------------*/
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 1300px) {
+	.container {
+		width: 94%;
+	}
+}
+
+.admgl-header {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.admgl-top {
+    margin: 0 auto;
+    overflow: hidden;
+    line-height: 1.6;
+}
+
+.admgl-header h2 {
+    float: left;
+    font-size: .9em;
+    text-align: left;
+    padding-left: 10px;
+    height: 20px;
+}
+
+.admgl-header p {
+    float: right;
+    font-size: .9em;
+    text-align: right;
+    padding-right: 10px;
+    height: 20px;
+}
+
+.admgl-nav ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+.admgl-nav ul li {
+    margin: 2px 2px 0 0;
+    float: left;
+    text-align: center;
+    font-size: .8em;
+    line-height: 3.3;
+    background-color: #333333;
+}
+
+.admgl-nav ul li:hover {
+    opacity: 0.8;
+}
+
+.admgl-nav ul li a {
+    display: block;
+    width: 145px;
+    height: 40px;
+    color: #fff;
+}
+
+.admgl-nav ul li a:link {
+    color: #ffffff;
+}
+
+.admgl-footer p {
+    font-size: .9em;
+    height: 45px;
+    text-align: right;
+    margin-top: 0;
+    padding: 20px 20px 5px 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.btn button {
+    width: auto;
+    color: #333333;
+    padding: 5px 5px 5px 5px;
+    line-height: 1.2;
+    height: 40px;
+    margin: 0 5px 40px 30px;
+}
+
+/*-------------------------
+TOP画面
+-------------------------*/
+.adm-top-main {
+    margin: 0 auto;
+}
+
+.adm-top-alert {
+    height: 150px;
+}
+
+.adm-top-alert p {
+    margin: 0;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.adm-top-news {
+    border: 1px solid;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 800px;
+    height: 300px;
+}
+
+@media screen and (max-width: 1100px) {
+	.adm-top-news {
+        width: 80%;
+	}
+}
+
+.adm-top-news table {
+    table-layout: fixed;
+    word-break: break-all;
+}
+
+.adm-top-news h2 {
+    text-align: center;
+    font-size: 1em;
+}
+
+.adm-top-news tr {
+    line-height: 1.2;
+}
+
+.adm-top-news th {
+    width: 95px;
+    padding: 3px 10px 0 5px;
+    border: none;
+    text-align: left;
+}
+
+.adm-top-news td {
+    padding: 3px 5px 0 5px;
+    word-wrap: break-word;
+    border: none;
+    text-align: left;
+}
+
+.adm-top-news p {
+    word-wrap: break-word;
+}
+
+/*-------------------------
+プロダクト
+-------------------------*/
+.list-top {
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.list-top .btn {
+    float: left;
+}
+
+.product-search {
+    margin: auto;
+}
+
+.product-search table {
+    margin: auto;
+    width: 600px;
+    height: 160px;
+}
+
+@media screen and (max-width: 1000px) {
+	.product-search table{
+        width: 70%;
+        height: auto;
+        margin: auto;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.product-search table{
+        width: 90%;
+        height: auto;
+        margin: auto;
+	}
+}
+
+.product-search th,
+.product-search td {
+    border: 1px solid #999999;
+}
+
+.product-search th {
+    width: 120px;
+}
+
+.product-search td {
+    text-align: left;
+    padding: 2px;
+}
+
+.product-search tr:nth-of-type(3) td {
+    padding-left: 5px;
+}
+
+.product-search tr:nth-of-type(3) label:nth-of-type(even) {
+    padding-left: 20px;
+}
+
+.product-search .name input[type="text"] {
+    width: 200px;
+    margin-left: 5px;
+}
+
+.product-search .price input[type="text"] {
+    width: 125px;
+    margin-left: 5px;
+}
+
+.product-search td[colspan="2"] {
+    text-align: center;
+}
+
+table.payment-table {
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+    height: auto;
+}
+
+.payment-table th,
+.payment-table td
+{
+    border: 0px solid;
+    text-align: left;
+    padding: 0px 0px 0px 0px;
+}
+
+.payment-table label {
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.product-table table {
+    margin: auto;
+    width: 90%;
+}
+
+.product-table tr td:nth-of-type(1),
+.product-table tr td:nth-of-type(3) {
+    width: 5%;
+    white-space: nowrap;
+}
+
+.product-table tr td:nth-of-type(2) {
+    width: 25%;
+}
+
+.product-table tr td:nth-of-type(4) {
+    width: 15%;
+}
+
+.product-table tr td:nth-of-type(5),
+.product-table tr td:nth-of-type(6) {
+    width: 15%;
+}
+
+.product-table tr td:last-of-type {
+    width: 10%;
+}
+
+.product-table tr {
+    margin-top: 50px;
+}
+
+.product-table th,
+.product-table td {
+    border: 1px solid;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+}
+
+.product-table form {
+    display: inline;
+}
+
+.product-table button {
+    margin: 0;
+    padding: 2px 2px 2px 2px;
+}
+
+.adm-edit-item table {
+    margin: auto;
+    width: 80%;
+}
+
+.adm-edit-item th,
+.adm-edit-item td {
+    border: 1px solid;
+    text-align: center;
+}
+
+.adm-edit-item th {
+    width: 100px;
+    font-weight: bold;
+}
+
+.adm-edit-item td {
+    margin: 0;
+    padding: 0 0 0 0;
+    text-align: left;
+    margin-left: 0;
+    width: 400px;
+}
+
+.adm-edit-item input[type="text"] {
+    font-size: .9em;
+    margin: 0;
+    height: 30px;
+    width: 250px;
+}
+
+.adm-edit-item input[type="submit"] {
+    margin: 20px 0 20px 0;
+    width: 150px;
+}
+
+.adm-edit-item label {
+    padding-left: 5px;
+    line-height: 2;
+    margin: 5px 0;
+}
+
+.adm-edit-item .imgSubmit {
+    width: 300px;
+}
+
+.adm-edit-item textarea {
+    width: 450px;
+    font-weight: normal;
+    height: 100px;
+    font-size: 1.1em;
+}
+
+.img-edit {
+    border-top: 1px solid #999999;
+}
+
+.img-edit .error {
+    margin-top: 10px;
+}
+
+.img-edit td {
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+}
+
+.img-edit .img {
+    text-align: center;
+    height: 500px;
+}
+
+.item-conf td {
+    padding-left: 5px;
+}
+
+.item-conf td.img {
+    padding: 0;
+    text-align: center;
+}
+
+.container .done {
+    height: 300px;
+}
+
+.done p {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/*-------------------------
+    売上管理
+-------------------------*/
+.adm-sales-list .list-top {
+    margin-bottom: 0;
+}
+
+.adm-sales-list .list-top .btn {
+    height: 60px;
+}
+
+@media screen and (max-width: 750px) {
+	.adm-sales-list .list-top .btn {
+        float: none;
+        height: 50px;
+    }
+}
+.adm-sales-list p.sales-management-list-or-graph {
+    float: left;
+    margin-left: 5%;
+}
+
+.adm-sales-list form.selected-month {
+    float: left;
+    margin-left: 10%;
+}
+
+.adm-sales-list form.csv-download {
+    float: left;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 750px) {
+	.adm-sales-list form.selected-month {
+        text-align: left;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+	.adm-sales-list form.csv-download {
+        float: right;
+        margin-right: 5%;
+    }
+}
+
+.adm-sales-list span.error {
+    color: #f93333;
+    font-size: 0.9em;
+    vertical-align: bottom;
+}
+
+.sales-list-table table {
+    margin: auto;
+    width: 90%;
+}
+
+.sales-list-table tr td:nth-of-type(1) {
+    width: 8%;
+    white-space: nowrap;
+}
+
+.sales-list-table tr td:nth-of-type(2) {
+    width: 30%;
+}
+
+.sales-list-table tr td:nth-of-type(3) {
+    width: 5%;
+}
+.sales-list-table tr td:nth-of-type(4) {
+    width: 5%;
+}
+
+.sales-list-table tr td:nth-of-type(5){
+    width: 8%;
+}
+
+.sales-list-table tr {
+    margin-top: 50px;
+}
+
+.sales-list-table th,
+.sales-list-table td {
+    border: 1px solid;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+}
+
+/*-------------------------
+    その他
+-------------------------*/
+form {
+    text-align: center;
+    margin: auto;
+}
+
+.login {
+    color: #333333;
+
+}
+
+.login h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.login table {
+    margin: auto;
+    border : none;
+}
+
+.login th,
+.login td {
+    border : none;
+    font-size: 1.4em;
+    text-align: center;
+    line-height: 1;
+    padding: 0 0 0 0 ;
+}
+
+.login th {
+    padding-top: 2px;
+    line-height: 1.1;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    margin-left: 5px;
+    width: 220px;
+    height: 26px;
+    font-size: 75%;
+}
+
+.login input[type="submit"] {
+    width: 47px;
+    height: 35px;
+    padding: 0;
+    font-size: 1.3em;
+    line-height: 1.3;
+    margin-top: 30px;
+}
+
+.logout {
+    text-align: center;
+    margin: auto;
+    color: #ccc;
+}
+
+.logout a {
+    color: #fff;
+}
+
+p.error {
+    height: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f93333;
+    text-align: center;
+    margin: auto;
+}
+
+.adm-error .container {
+    height: 400px;
+}

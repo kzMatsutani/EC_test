@@ -1,0 +1,3211 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html {
+    font-size: 62.5%;
+    color: #333333;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+    /* border-spacing: 2px; */
+}
+
+body {
+    font-size: 1.4rem;
+    margin-top: 8px;
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+/* ヘッダー */
+#header {
+    width: 1000px;
+    margin: 0 auto;
+    height: 80px;
+}
+
+.title-container {
+    width: 50%;
+    float: left;
+}
+
+.header-logo {
+    width: 20%;
+    float: left;
+}
+
+.header-logo img {
+    width: 100%;
+}
+
+.site-title {
+    width: 80%;
+    float: right
+}
+
+.site-title p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding-left: 10px;
+}
+
+.site-title h1 {
+    font-size: 2.5rem;
+    line-height: 2.3rem;
+    padding-left: 10px;
+    font-family: "ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;
+    font-weight: bold;
+}
+
+.payment-contact-container {
+    width: 50%;
+    float: right;
+    height: auto;
+}
+
+.payment-contact {
+    width: 100%;
+}
+
+.payment {
+    width: 35%;
+    float: left;
+}
+
+.payment img {
+    width: 100%;
+    height: auto;
+}
+
+.freedial {
+    width: 65%;
+    float: right;
+    padding-left: 10px;
+}
+
+.freedial p {
+    background-color: #F66B8E;
+    border-radius: 8px;
+    color: #fff;
+    padding: 5px 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.phone-number img {
+    width: 15%;
+}
+
+.phone-number p {
+    width: 100%;
+    color: #676767;
+    float: right;
+    background-color: #fff;
+    margin-top: -10px;
+    line-height: 2rem;
+    font-size: 1.2rem;
+}
+
+.font1 {
+    font-size: 2.5rem;
+}
+
+.nav-container {
+    border-bottom: 2px solid #ABABAB;
+}
+
+.g-nav-order {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.order-container {
+    width: 100%;
+    margin-top: 0;
+}
+
+.order-box {
+    width: 100%;
+    float: right;
+    text-align: center;
+    margin-bottom: 10px;
+    background-image: -webkit-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: -moz-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: -ms-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: -o-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: linear-gradient(to bottom, #4CB143, #5DEA4C);
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.order-box:hover {
+    background-image: -webkit-linear-gradient(top, #D868DF, #E5ACF1);
+    background-image: -moz-linear-gradient(top, #D868DF, #E5ACF1);
+    background-image: -ms-linear-gradient(top, #D868DF, #E5ACF1);
+    background-image: -o-linear-gradient(top, #D868DF, #E5ACF1);
+    background-image: linear-gradient(to bottom, #D868DF, #E5ACF1);
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+}
+
+.order-btn {
+    text-decoration: none;
+    color: #fff;
+}
+
+.global-nav {
+    width: 1000px;
+    text-align: center;
+    margin-top: 0px
+}
+
+.global-nav li {
+    padding-left: 6px;
+    margin-left: 6px;
+    display: -moz-inline-box;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+li.nav-item {
+    border-left: 0px solid #CCC;
+}
+
+
+.global-nav li a {
+    text-decoration: none;
+    color: #727272
+}
+
+.global-nav li a:hover {
+    color: #F5829D
+}
+
+/* メインビュー */
+.mainview {
+    width: 100%;
+}
+
+.mainview img {
+    width: 100%;
+}
+
+.mainview-info {
+    width: 1000px;
+    margin: -70px auto 0px;
+    text-align: center;
+}
+
+.mainview-info p {
+    font-size: 1.5rem;
+    line-height: 3.5rem;
+}
+
+.font2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #19A0C9;
+}
+
+.font3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5FE967;
+}
+
+.font4 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #F66B8E;
+    padding-left: 5px;
+}
+
+.font5 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #F66B8E;
+    padding-left: 5px;
+    line-height: 6rem;
+}
+
+/* トウガンダイエットとは */
+.tougan {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.tougan img {
+    width: 95%;
+    margin-right: 20px;
+}
+
+.image_photo {
+    position: absolute;
+    top: 48%;
+    left: 15%;
+    width: 18%;
+}
+
+.image-comment {
+    position: absolute;
+    top: 55%;
+    left: 40%;
+    width: 55%;
+}
+
+
+.tougan .info {
+    font-size: 1.5rem;
+
+}
+
+/* スモールコンテンツ */
+.contents-container {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+/* 実証 */
+.proof {
+    width: 50%;
+    float: left;
+    height: 750px;
+    border: 1px solid #fff;
+    padding-right: 10px;
+}
+
+.proof h2 {
+    background-color: #3087EC;
+    background-image:
+        repeating-linear-gradient(120deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(60deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 60px),
+        linear-gradient(60deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1)),
+        linear-gradient(120deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1));
+    background-size: 70px 120px;
+    padding: 5px 0 5px;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    margin-top: 0px;
+    border-radius: 8px;
+}
+
+.proof-img img {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.proof-point-1 {
+    text-align: center;
+    background-color: #84D2F2;
+    position: relative;
+    padding: 5px;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+
+.proof-point-1 :before {
+    content: "";
+    display: inline-block;
+    border: 10px solid transparent;
+    border-top-color: #84D2F2;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+}
+
+.proof-point-1 p {
+    margin-top: 10px;
+    color: #919191;
+    font-size: 1.8rem;
+}
+
+.proof-point-1 h3 {
+    margin-top: -15px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #3E3E3E;
+}
+
+.proof-comment-1 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.proof-comment-1 h3 {
+    text-align: center;
+    margin-top: 30px;
+    background-color: #F3FB5C;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    padding: 10px 0 10px;
+}
+
+.proof-comment-1 p {
+    text-align: left;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}
+
+.proof-point-2 {
+    text-align: center;
+    background-color: #84D2F2;
+    position: relative;
+    padding: 5px;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 50px;
+}
+
+.proof-point-2 :before {
+    content: "";
+    display: inline-block;
+    border: 10px solid transparent;
+    border-top-color: #84D2F2;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+}
+
+.proof-point-2 p {
+    margin-top: 10px;
+    color: #919191;
+    font-size: 1.8rem;
+}
+
+.proof-point-2 h3 {
+    margin-top: -15px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #3E3E3E;
+}
+
+.proof-comment-2 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.proof-comment-2 h3 {
+    text-align: center;
+    margin-top: 30px;
+    background-color: #F3FB5C;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    padding: 10px 0 10px;
+}
+
+.proof-comment-2 p {
+    text-align: left;
+    border-bottom: 10px solid #3087EC;
+    padding-bottom: 5px;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}
+
+/* ブログ */
+.blog-container {
+    width: 50%;
+    float: right;
+    padding: 20px 20px 0px;
+    margin-bottom: 10px;
+    background:
+        radial-gradient(#d9e021 15%, transparent 16%) 0 0,
+        radial-gradient(#d9e021 15%, transparent 16%) 8px 8px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+    background-color: #b1d371;
+    background-size: 16px 16px;
+}
+
+.blog-info h2 {
+    text-align: center;
+    background-color: #50a57a;
+    margin-top: 0px;
+    color: #fff;
+    padding: 3px 0 3px;
+}
+
+.blog-info p {
+    text-align: center;
+    margin-top: 0px;
+    color: #404040;
+    font-size: 1.5rem;
+}
+
+.font6 {
+    font-size: 1.8rem;
+    color: #F02427;
+}
+
+.blog-info h3 {
+    color: #2b513d;
+    font-size: 2.5rem;
+    margin-top: -10px;
+    text-align: center
+}
+
+.blog-btn {
+    text-align: center;
+    margin-top: -20px;
+    background-color: #F58E2B;
+    border-radius: 10px;
+}
+
+.blog-btn a {
+    text-decoration: none;
+}
+
+.blog-btn p {
+    color: #fff;
+}
+
+.blog-btn i {
+    margin-left: 5px;
+}
+
+.blog-btn :hover {
+    background-color: #27ae60;
+    color: #fff;
+    border-radius: 10px;
+}
+
+/* プロフィール */
+.profile {
+    width: 50%;
+    float: right;
+    height: auto;
+    text-align: center;
+    border-top: 5px dotted #188859;
+    border-bottom: 5px dotted #188859;
+    margin-top: 10px;
+}
+
+.profile-contents h2 {
+    color: #F13639;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.profile-contents p {
+    font-size: 1.5rem;
+}
+
+.font7 {
+    background-color: #F13639;
+    padding: 2px 5px;
+    color: #fff;
+}
+
+.profile-link {
+    background-color: #3498db;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.profile-link :hover {
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.profile-link p {
+    color: #fff;
+}
+
+.profile-link a {
+    text-decoration: none;
+}
+
+.profile-link i {
+    margin-left: 5px;
+}
+
+/* ヤフーニュース */
+.yahoo-news {
+    width: 50%;
+    float: right;
+    height: auto;
+    border: 5px solid #F9CECF;
+    margin-top: 20px;
+}
+
+.news-box p {
+    width: 90%;
+    border: 3px solid #F9CECF;
+    background-color: #fff;
+    margin: 10px auto 0px;
+    padding: 10px 0 10px;
+    font-size: 1.7rem;
+    text-align: center;
+    font-family: "ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;
+    line-height: 2.2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.font8 {
+    color: #F32326;
+    font-size: 2rem;
+}
+
+.news-box p :before {
+    content: "";
+    display: inline-block;
+    border: 10px solid transparent;
+    border-top-color: #F9CECF;
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+}
+
+.news h2 {
+    text-align: center;
+    background: -webkit-gradient(linear, left top, right bottom, from(#FADBDC), color-stop(0.25, #FADBDC), color-stop(0.25, #fff), color-stop(0.5, #fff), color-stop(0.5, #FADBDC), color-stop(0.75, #ddd), color-stop(0.75, #fff), to(#fff));
+    background: -moz-linear-gradient(-45deg, #FADBDC 25%, #fff 25%, #fff 50%, #FADBDC 50%, #FADBDC 75%, #fff 75%, #fff);
+    background: linear-gradient(-45deg, #FADBDC 25%, #fff 25%, #fff 50%, #FADBDC 50%, #FADBDC 75%, #fff 75%, #fff);
+    background-size: 8px 8px;
+    margin-top: 15px;
+    padding: 10px 0 10px;
+    color: #303030;
+    font-size: 3rem;
+}
+
+.yahoo-news-info {
+    text-align: center;
+}
+
+.yahoo-news-info p {
+    margin-top: -10px;
+}
+
+.font9 {
+    color: #fff;
+    background-color: #16a085;
+    padding: 2px 5px;
+}
+
+.article-btn {
+    background-color: #e74c3c;
+    width: 80%;
+    margin: 0 auto 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.article-btn :hover {
+    background-color: #f1c40f;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.article-btn i {
+    margin-left: 5px;
+}
+
+.article-btn a {
+    text-decoration: none;
+}
+
+.article-btn p {
+    color: #fff;
+}
+
+
+
+/* 新商品 */
+.new-container {
+    width: 50%;
+    float: right;
+    background-color: #D3F6DC;
+    margin-top: 20px;
+    border: 4px double #026873;
+    background-size: 20px 20px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) 7px, transparent 7px, transparent);
+}
+
+.news-box {
+    width: 100%;
+}
+
+.new-product {
+    width: 40%;
+    background-color: #27ae60;
+    font-size: 2rem;
+    text-weight: bold;
+    color: #fff;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    background-color: #026873;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, .07) 50%, transparent 50%),
+        linear-gradient(90deg, rgba(255, 255, 255, .13) 50%, transparent 50%),
+        linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .17) 50%),
+        linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .19) 50%);
+    background-size: 13px, 29px, 37px, 53px;
+}
+
+.new-product p {
+    margin-left: 30%;
+}
+
+.new-title {
+    text-align: center;
+}
+
+.new-title h3 {
+    color: #4B4B4B;
+}
+
+.font10 {
+    font-size: 2.3rem;
+    color: #3C3C3C;
+    background-color: #F0BF3B;
+    padding: 5px 10px;
+}
+
+.new-comment {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.new-btn {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #026873;
+    border-radius: 10px;
+}
+
+.new-btn:hover {
+    background-color: #2ecc71;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.new-btn p {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.new-btn i {
+    margin-left: 5px;
+}
+
+.new-btn a {
+    text-decoration: none;
+}
+
+/* メディア */
+.media {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.line-top img {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.radio-container {
+    width: 50%;
+    float: left;
+    background-color: #D5FAE4;
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .5) 50%);
+    background-size: 50px 50px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.radio-container .title p {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #34495e;
+    font-weight: bold;
+    background: linear-gradient(transparent 60%, #F9F9AA 0%);
+    width: 90%;
+    margin: 20px auto;
+}
+
+.radio-container .title h3 {
+    text-align: center;
+    font-size: 2.1rem;
+    color: #16a085;
+    font-weight: bold;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    padding: 10px 0 10px;
+    margin-bottom: 35px;
+    border: 10px double;
+}
+
+.okinawa {
+    background-color: #FEACAD;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: -10px;
+}
+
+.hokkaido {
+    background-color: #FEACAD;
+    text-align: center;
+    width: 80%;
+    margin: -5px auto;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.bunka {
+    background-color: #FEACAD;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.point-1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.point-1 h3 {
+    color: #1abc9c;
+    font-size: 2rem;
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+
+.point-1 i {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.point-2 {
+    text-align: center;
+}
+
+.point-2 h3 {
+    color: #1abc9c;
+    font-size: 2rem;
+    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+
+.point-2 i {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.line-bottom img {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.youtube-container {
+    width: 50%;
+    float: right;
+}
+
+.youtube-title {
+    width: 95%;
+    float: right;
+    text-align: center;
+    border-radius: 10px;
+    background: -webkit-gradient(linear, left top, right bottom, from(#BEF5B7), color-stop(0.25, #BEF5B7), color-stop(0.25, #fff), color-stop(0.5, #fff), color-stop(0.5, #BEF5B7), color-stop(0.75, #ddd), color-stop(0.75, #fff), to(#fff));
+    background: -moz-linear-gradient(-45deg, #BEF5B7 25%, #fff 25%, #fff 50%, #BEF5B7 50%, #BEF5B7 75%, #fff 75%, #fff);
+    background: linear-gradient(-45deg, #BEF5B7 25%, #fff 25%, #fff 50%, #BEF5B7 50%, #BEF5B7 75%, #fff 75%, #fff);
+    background-size: 8px 8px;
+}
+
+.youtube-title h3 {
+    color: #16a085;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
+    font-size: 2.5rem;
+}
+
+.moji {
+    border-radius: 5px;
+    padding-top: 15px;
+    width: 90%;
+    margin: 20px auto 0;
+    overflow: hidden;
+}
+
+.moji p {
+    font-size: 1.5rem;
+}
+
+.video {
+    width: 95%;
+    float: right;
+    margin-top: -15px
+}
+
+.video iframe {
+    width: 100%;
+}
+
+.youtube-btn {
+    width: 95%;
+    float: right;
+    text-align: center;
+    background-color: #f39c12;
+    border-radius: 30px;
+    margin-top: 5%;
+}
+
+.youtube-btn:hover {
+    background-color: #35CA65;
+}
+
+.youtube-btn p {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.youtube-btn i {
+    margin-left: 10px;
+}
+
+.youtube-btn a {
+    text-decoration: none;
+}
+
+/* 地図 */
+.map-wrapper {
+    margin-top: 40px;
+}
+
+.map {
+    width: 50%;
+    float: left;
+}
+
+.map iframe {
+    width: 100%;
+}
+
+.map-box {
+    width: 50%;
+    float: right;
+    padding-left: 20px;
+    margin-top: -20px;
+}
+
+.map-title {
+    background:
+        radial-gradient(#d9e021 15%, transparent 16%) 0 0,
+        radial-gradient(#d9e021 15%, transparent 16%) 8px 8px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+        radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+    background-color: #b1d371;
+    background-size: 16px 16px;
+    text-align: center
+}
+
+.map-title h3 {
+    font-size: 2rem;
+    padding: 5px;
+    color: #3E6B20;
+    margin-bottom: 35px;
+}
+
+.map-address {
+    margin-top: 50px;
+    border-top: 2px solid #989898;
+    border-bottom: 2px solid #989898;
+}
+
+.map-address h4 {
+    margin-bottom: 0px;
+    font-size: 1.8rem;
+}
+
+/* メルマガ */
+.mail-magazine {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.mail-magazine p img {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.mail-magazine p img:hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "alpha( opacity=70 )";
+    background: #fff;
+}
+
+/* ダイエット */
+.diet-wrapper {
+    width: 1000px;
+    margin: 40px auto 0;
+}
+
+.diet-title {
+    background-image: -webkit-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: -moz-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: -ms-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: -o-linear-gradient(top, #4CB143, #5DEA4C);
+    background-image: linear-gradient(to bottom, #4CB143, #5DEA4C);
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.diet-title p {
+    font-size: 2.5rem;
+    font-family: "ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;
+    color: #fff;
+    font-weight: bold;
+}
+
+.diet-img {
+    width: 100%;
+}
+
+.diet-article {
+    width: 100%;
+}
+
+dl dt {
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #545454;
+    background-image: -webkit-linear-gradient(top, #F8C5CF, #F9B4C1);
+    background-image: -moz-linear-gradient(top, #F8C5CF, #F9B4C1);
+    background-image: -ms-linear-gradient(top, #F8C5CF, #F9B4C1);
+    background-image: -o-linear-gradient(top, #F8C5CF, #F9B4C1);
+    background-image: linear-gradient(to bottom, #F8C5CF, #F9B4C1);
+}
+
+dl dt:hover {
+    background-image: -moz-linear-gradient(#E3FCFB, #B1EDE6);
+    background-image: -webkit-linear-gradient(#E3FCFB, #B1EDE6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E3FCFB), to(#B1EDE6));
+    background-image: -o-linear-gradient(#E3FCFB, #B1EDE6);
+    background-image: linear-gradient(#E3FCFB, #B1EDE6);
+}
+
+dl dt.active {
+    background-image: -webkit-linear-gradient(top, #E3FCFB, #B1EDE6);
+    background-image: -moz-linear-gradient(top, #E3FCFB, #B1EDE6);
+    background-image: -ms-linear-gradient(top, #E3FCFB, #B1EDE6);
+    background-image: -o-linear-gradient(top, #E3FCFB, #B1EDE6);
+    background-image: linear-gradient(to bottom, #E3FCFB, #B1EDE6);
+}
+
+dl dd {
+    background: #fff;
+    width: 100%;
+    line-height: 2.3rem;
+    display: none;
+    margin: 0;
+    font-size: 1.5rem;
+    padding: 10px 30px;
+}
+
+.diet-article i {
+    margin-left: 10px;
+}
+
+.font11 {
+    color: #F82B52;
+    font-weight: bold;
+}
+
+.diet-newspaper img {
+    width: 30%;
+    float: left;
+    margin-top: 30px;
+}
+
+.diet-comment {
+    width: 68%;
+    float: right;
+    margin-top: 30px;
+}
+
+/* 購入 */
+.order-wrapper {
+    margin: 20px 0 20px;
+}
+
+.order-container {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 0px;
+
+}
+
+.order-info {
+    width: 100%;
+}
+
+.order-title img {
+    width: 100%;
+}
+
+.order-title h3 {
+    text-align: center;
+    color: #67361E;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    font-family: "ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;
+}
+
+.image-box {
+    width: 100%;
+}
+
+
+.order-option {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.order-option-title {
+    width: 100%;
+}
+
+.order-option-title h2 {
+    color: #3A7236;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
+}
+
+.order-option-title i {
+    margin-right: 10px;
+    margin-top: 20px
+}
+
+.option {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.option-img {
+    display: block;
+    float: left;
+    width: 55%;
+}
+
+.option-img img {
+    width: 100%;
+}
+
+.order-text {
+    width: 45%;
+    float: right;
+    padding-left: 50px;
+}
+
+.order-text p {
+    font-size: 1.7rem;
+    font-family: "ＭＳ Ｐ明朝", "MS PMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", serif;
+    margin-top: 0;
+}
+
+.order-text h2 {
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.order-text h3 {
+    margin-top: -10px;
+}
+
+.font15 {
+    font-size: 3rem;
+    padding-left: 10px;
+}
+
+.order-text h4 {
+    color: #FA7274;
+    margin-top: -15px;
+    width: 250px;
+    text-align: right;
+    font-weight: normal;
+}
+
+.order-payment-detail {
+    height: 200px;
+}
+
+.order-payment h4 {
+    color: #fff;
+    background-color: #FB393D;
+    text-align: left;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-size: 1.8rem
+}
+
+.order-payment p {
+    line-height: 2.5rem;
+    margin-top: -10px;
+    font-weight: bold;
+}
+
+
+.order-payment i {
+    padding-right: 10px;
+}
+
+.jumpto_detail p {
+    font-size: 1.5rem;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    color: #3CF791
+}
+
+.jumpto_detail i {
+    padding-left: 5px;
+}
+
+.jumpto_detail p:hover {
+    color: #F3DB4F;
+}
+
+.jump {
+    text-decoration: none;
+}
+
+
+
+
+
+/* 商品の詳細 */
+.product-info {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.info-title {
+    width: 100%;
+}
+
+
+.info-title img {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.detail {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.product-detail {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.product-detail h3 {
+    position: relative;
+    padding: .25em 0 .5em .75em;
+    border-left: 6px solid #ff8080;
+}
+
+.product-detail h3::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.product-detail p {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.product-detail ul {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.font12 {
+    font-weight: bold;
+}
+
+.product-detail a {
+    text-align: right;
+    text-decoration: none;
+    color: #01294B;
+}
+
+.product-detail a:hover {
+    color: #F6C968;
+}
+
+.product-detail i {
+    padding-left: 5px;
+}
+
+
+/* フッター */
+.footer {
+    border-top: 2px solid #ABABAB;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.left {
+    width: 50%;
+    float: left;
+}
+
+.menu ul {
+    margin: 20px 0;
+    /* メニューのマージン（上下、左右） */
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+    /* メニューのセンタリング */
+}
+
+/* --- メニュー項目 --- */
+.menu ul li {
+    padding: 0 3px 0 7px;
+    /* 項目のパディング（上右下左） */
+    border-left: 1px #000000 solid;
+    /* 項目の左境界線 */
+    display: inline;
+}
+
+.menu ul li.first {
+    border-left: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #6C6C6C;
+}
+
+.menu ul li a:hover {
+    text-decoration: none;
+    color: #F89698;
+}
+
+.footer-contact {
+    width: 50%;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer-contact p {
+    font-weight: bold;
+    width: 100%;
+}
+
+.ph-text {
+    width: 100%;
+    margin-top: -10px;
+}
+
+.font13 {
+    font-weight: normal;
+}
+
+.font14 {
+    color: #F98587;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.footer-contact h4 {
+    font-size: 3rem;
+    margin-top: -10px;
+}
+
+.footer-contact img {
+    width: 10%;
+}
+
+
+
+/* #############################################################769pxから1025px###################################################################### */
+@media (min-width: 769px) and (max-width: 1025px) {
+
+    /* ヘッダー */
+    #header {
+        width: 100%;
+    }
+
+    .title-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header-logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-logo img {
+        height: 100px;
+        width: auto;
+    }
+
+    .site-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .site-title h1 {
+        font-size: 3rem;
+    }
+
+    .payment-contact-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .payment-contact {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .payment {
+        width: 35%;
+        float: left;
+    }
+
+    .payment img {
+        width: 100%;
+        height: auto;
+    }
+
+    .freedial {
+        width: 65%;
+        float: right;
+        padding-left: 10px;
+    }
+
+    .freedial p {
+        background-color: #F66B8E;
+        border-radius: 8px;
+        color: #fff;
+        padding: 5px 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .phone-number img {
+        width: 40px;
+    }
+
+    .phone-number p {
+        width: 100%;
+        color: #676767;
+        float: right;
+        background-color: #fff;
+        margin-top: 0px;
+        line-height: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .font1 {
+        font-size: 2.5rem;
+    }
+
+    .g-nav-order {
+        width: 70%;
+        text-align: center;
+    }
+
+    .order-container {
+        width: 100%;
+    }
+
+    .global-nav {
+        width: 100%;
+        margin-top: 0px;
+        margin-left: -20px;
+    }
+
+    .mainview-info {
+        width: 100%;
+        margin: -30px auto 0px;
+        text-align: center;
+    }
+
+    .mainview-info p {
+        font-size: 1.2rem;
+        line-height: 3rem;
+    }
+
+    .font2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #19A0C9;
+    }
+
+    .font3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #5FE967;
+    }
+
+    .font4 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #F66B8E;
+        padding-left: 5px;
+    }
+
+    .font5 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #F66B8E;
+        padding-left: 5px;
+        line-height: 4rem;
+    }
+
+    /* トウガンダイエットとは */
+    .tougan {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .tougan img {
+        width: 95%;
+        margin-right: 20px;
+    }
+
+    .image_photo {
+        position: absolute;
+        top: 48%;
+        left: 15%;
+        width: 18%;
+    }
+
+    .image-comment {
+        position: absolute;
+        top: 55%;
+        left: 40%;
+        width: 55%;
+    }
+
+
+    .tougan .info {
+        font-size: 1.2rem;
+
+    }
+
+    /* スモールコンテンツ */
+    .contents-container {
+        width: 95%;
+    }
+
+
+    /* ブログ */
+    .blog-container {
+        width: 50%;
+        float: right;
+        padding: 20px 20px 0px;
+        margin-bottom: 10px;
+        background:
+            radial-gradient(#d9e021 15%, transparent 16%) 0 0,
+            radial-gradient(#d9e021 15%, transparent 16%) 8px 8px,
+            radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+            radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+        background-color: #b1d371;
+        background-size: 16px 16px;
+    }
+
+    .blog-info h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        background-color: #50a57a;
+        margin-top: 0px;
+        color: #fff;
+        padding: 3px 0 3px;
+    }
+
+
+
+    /* プロフィール */
+    .profile {
+        width: 50%;
+        float: right;
+        height: 150px;
+    }
+
+    .profile-contents p {
+        font-size: 1.2rem;
+    }
+
+    /* ヤフーニュース */
+    .yahoo-news {
+        width: 50%;
+        float: right;
+        height: auto;
+    }
+
+    /* 新商品 */
+
+    /* メディア */
+    .media {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .radio-container .title p {
+        font-size: 1.3rem;
+        background: linear-gradient(transparent 0%, #F9F9AA 0%);
+        padding: 10px;
+    }
+
+    .radio-container .title h3 {
+        font-size: 1.5rem;
+    }
+
+    .point-1 h3 {
+        font-size: 1.8rem;
+    }
+
+    .point-2 h3 {
+        font-size: 1.8rem;
+    }
+
+    /* ダイエット */
+    .diet-wrapper {
+        width: 100%;
+    }
+
+    .diet-title p {
+        font-size: 2.2rem;
+    }
+
+    .diet-img img {
+        width: 100%;
+    }
+
+    /* 購入 */
+    .order-container {
+        width: 100%;
+    }
+
+    .order-info {
+        width: 100%;
+    }
+
+    .order-title h2 {
+        top: 10%;
+    }
+
+    /* 商品の詳細 */
+    .product-info {
+        width: 100%;
+    }
+
+    .product-detail {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .info-title h2 {
+        bottom: 2%;
+    }
+
+    .detail {
+        width: 100%;
+    }
+
+
+
+    /* フッター */
+    .footer-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+}
+
+/* ############################################################スマートフォン・タブレット対応############################################################ */
+@media (max-width: 768px) {
+
+    /* ヘッダー */
+    #header {
+        width: 100%;
+    }
+
+    .title-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header-logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-logo img {
+        height: 100px;
+        width: auto;
+    }
+
+    .site-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .site-title h1 {
+        font-size: 2rem;
+    }
+
+    .payment-contact-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .payment-contact {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .payment {
+        width: 100%;
+        margin-top: -60px;
+    }
+
+    .payment img {
+        width: 40%;
+        height: auto;
+    }
+
+    .freedial {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .freedial p {
+        background-color: #F66B8E;
+        border-radius: 8px;
+        color: #fff;
+        padding: 5px 10px;
+        width: 100%;
+        font-size: 1.2rem
+    }
+
+    .phone-number {
+        width: 100%;
+    }
+
+    .phone-number p {
+        width: 100%;
+        color: #676767;
+        float: left;
+        background-color: #fff;
+        margin-top: 0px;
+        line-height: 2rem;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    .phone-number img {
+        width: 40px;
+    }
+
+    .font1 {
+        font-size: 2.5rem;
+    }
+
+    .g-nav-order {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .order-container {
+        width: 100%;
+        float: left;
+        margin-top: 0px;
+    }
+
+    .global-nav {
+        width: 100%;
+        margin-top: 0px;
+        margin-left: -30px;
+        line-height: 2.3rem;
+    }
+
+    .mainview-info {
+        width: 90%;
+        margin: -15px auto 0px;
+        text-align: center;
+    }
+
+    .mainview-info p {
+        font-size: 1.2rem;
+        line-height: 3rem;
+    }
+
+    .font2 {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #19A0C9;
+    }
+
+    .font3 {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #5FE967;
+    }
+
+    .font4 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #F66B8E;
+        padding-left: 5px;
+    }
+
+    .font5 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #F66B8E;
+        padding-left: 5px;
+        line-height: 4rem;
+    }
+
+    /* トウガンダイエットとは */
+    .tougan {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .tougan img {
+        width: 100%;
+        margin-right: 20px;
+    }
+
+    .image_photo {
+        position: absolute;
+        top: 44%;
+        left: 8%;
+        width: 20%;
+    }
+
+    .image-comment {
+        position: absolute;
+        top: 44%;
+        left: 30%;
+        width: 60%;
+        height: 50%;
+        overflow: auto;
+    }
+
+
+    .tougan .info {
+        font-size: 1.5rem;
+
+    }
+
+    /* スモールコンテンツ */
+    .contents-container {
+        width: 95%;
+        margin-top: -15px;
+    }
+
+    /* 実証 */
+
+    .proof {
+        width: 100%;
+        float: left;
+        height: auto;
+    }
+
+    .proof-point-1 p {
+        font-size: 1.5rem;
+    }
+
+    .proof-point-1 h3 {
+        font-size: 1.8rem;
+    }
+
+    .proof-comment-1 h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .proof-comment-1 p {
+        font-size: 1.4rem;
+        line-height: 1.9rem;
+    }
+
+    .proof-point-2 p {
+        font-size: 1.5rem;
+    }
+
+    .proof-point-2 h3 {
+        font-size: 1.8rem;
+    }
+
+    .proof-comment-2 h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .proof-comment-2 p {
+        font-size: 1.4rem;
+        line-height: 1.9rem;
+    }
+
+
+    /* ブログ */
+    .blog-container {
+        width: 100%;
+    }
+
+    .blog-btn i {
+        margin-left: 5px;
+    }
+
+
+
+    /* プロフィール */
+    .profile {
+        width: 100%;
+    }
+
+    /* ヤフーニュース */
+    .yahoo-news {
+        width: 100%;
+        float: right;
+        height: auto;
+    }
+
+    /* 新商品 */
+    .new-container {
+        width: 100%;
+    }
+
+    .font10 {
+        font-size: 2rem;
+    }
+
+    /* メディア */
+    .media {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .radio-container {
+        width: 100%;
+    }
+
+    .radio-container .title p {
+        font-size: 1.1rem;
+        background: linear-gradient(transparent 0%, #F9F9AA 0%);
+        padding: 10px;
+    }
+
+    .radio-container .title h3 {
+        font-size: 1.5rem;
+    }
+
+    .point-1 h3 {
+        font-size: 1.8rem;
+    }
+
+    .point-2 h3 {
+        font-size: 1.8rem;
+    }
+
+    .youtube-container {
+        width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+
+    .youtube-title {
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background: -webkit-gradient(linear, left top, right bottom, from(#BEF5B7), color-stop(0.25, #BEF5B7), color-stop(0.25, #fff), color-stop(0.5, #fff), color-stop(0.5, #BEF5B7), color-stop(0.75, #ddd), color-stop(0.75, #fff), to(#fff));
+        background: -moz-linear-gradient(-45deg, #BEF5B7 25%, #fff 25%, #fff 50%, #BEF5B7 50%, #BEF5B7 75%, #fff 75%, #fff);
+        background: linear-gradient(-45deg, #BEF5B7 25%, #fff 25%, #fff 50%, #BEF5B7 50%, #BEF5B7 75%, #fff 75%, #fff);
+        background-size: 8px 8px;
+    }
+
+    .youtube-title h3 {
+        color: #16a085;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
+        font-size: 2rem;
+    }
+
+    .moji {
+        border-radius: 5px;
+        padding-top: 15px;
+        margin: 20px auto -10px;
+        overflow: hidden;
+        float: none;
+    }
+
+    .moji p {
+        font-size: 1.5rem;
+    }
+
+    .video {
+        width: 90%;
+        margin: 0 auto;
+        float: none;
+    }
+
+    .video iframe {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .youtube-btn {
+        width: 100%;
+        float: none;
+        margin-top: 0%;
+    }
+
+    .youtube-btn:hover {
+        background-color: #35CA65;
+    }
+
+    .youtube-btn p {
+        color: #fff;
+        font-size: 1.8rem;
+    }
+
+    .youtube-btn i {
+        margin-left: 10px;
+    }
+
+    /* 地図 */
+    .map {
+        width: 90%;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .map iframe {
+        width: 100%;
+    }
+
+    .map-box {
+        width: 100%;
+        float: none;
+        padding-left: 0px;
+        margin-top: 10px;
+    }
+
+    .map-address {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* メルマガ */
+    .mail-magazine {
+        margin-top: -20px;
+    }
+
+
+    /* ダイエット */
+    .diet-wrapper {
+        width: 100%;
+    }
+
+    .diet-title p {
+        font-size: 1.5rem;
+    }
+
+    .diet-img img {
+        width: 100%;
+    }
+
+    dl dt {
+        font-size: 1.5rem;
+    }
+
+    dl dd {
+        font-size: 1.2rem;
+    }
+
+    .diet-newspaper img {
+        width: 100%;
+        float: none;
+    }
+
+    .diet-comment {
+        width: 100%;
+        float: none;
+    }
+
+    /* 購入 */
+
+    .order-container {
+        width: 100%;
+    }
+
+    .order-title h3 {
+        font-size: 1.4rem;
+    }
+
+    .order-option {
+        text-align: center;
+    }
+
+    .option {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .option-img {
+        width: 100%;
+    }
+
+    .option-img img {
+        width: 100%;
+    }
+
+    .order-text {
+        width: 100%;
+        padding-left: 0px;
+
+    }
+
+    /* 商品の詳細 */
+
+    .product-info {
+        width: 100%;
+    }
+
+    .product-info h2 {
+        bottom: 0px;
+    }
+
+    .detail {
+        width: 100%;
+    }
+
+    .product-detail {
+        width: 85%;
+    }
+
+    .product-detail h3 {
+        font-size: 1.5rem;
+    }
+
+
+    .product-detail p {
+        font-size: 1.2rem;
+    }
+
+    .product-detail ul {
+        font-size: 1.2rem;
+    }
+
+    /* フッター */
+    .footer {
+        border-top: 2px solid #ABABAB;
+        padding: 10px;
+        margin-top: 40px;
+    }
+
+    .footer-container {
+        width: 100%;
+    }
+
+    .left {
+        width: 100%;
+        float: none;
+    }
+
+    .menu ul {
+        font-size: 1.2rem;
+    }
+
+    .address p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .footer-contact {
+        width: 100%;
+        float: none;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        border-top: 1px solid;
+    }
+
+    .footer-contact p {
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .ph-text {
+        width: 100%;
+        margin-top: -10px;
+    }
+
+    .font13 {
+        font-weight: normal;
+    }
+
+    .font14 {
+        color: #F98587;
+        font-weight: bold;
+        font-size: 1.7rem;
+    }
+
+    .footer-contact h4 {
+        font-size: 3rem;
+        margin-top: -10px;
+    }
+
+    .footer-contact img {
+        width: 10%;
+    }
+
+}
+
+li {
+    list-style-type: none;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.clearfix::before {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*-------------------------
+    ログイン
+-------------------------*/
+.login-container {
+    width: 800px;
+    height: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+@media (max-width: 1025px) {
+    .login-container {
+        width: auto;
+        height: 300px;
+    }
+}
+
+.login-container h2 {
+    font-size: 2em;
+    height: 50px;
+    width: 400px;
+    margin: 20px auto 0 auto;
+}
+
+.login-container .error {
+    margin-bottom: 0;
+    margin-top: 10px;
+    line-height: 2;
+    height: 30px;
+    color: #f93333;
+    font-weight: bold;
+}
+
+@media (max-width: 1025px) {
+    .login-container .error {
+        margin-top: 20px;
+        height: 10px;
+    }
+}
+
+.login-container form {
+    height: 150px;
+}
+
+@media (max-width: 1025px) {
+    .login-container form {
+        height: 150px;
+    }
+}
+
+.login-container table {
+    text-align: left;
+    margin: auto;
+}
+
+@media (max-width: 1025px) {
+    .login-container table {
+        margin-top: 20px;
+    }
+}
+
+.login-container th {
+    font-size: 1.2em;
+    height: 40px;
+    padding-right: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+@media (max-width: 1025px) {
+    .login-container th,
+    .login-container td {
+        padding-right: 15px;
+        margin: auto;
+        text-align: left;
+    }
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    font-size: 1.2em;
+}
+
+.login-container p.login-submit {
+    width: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    float: none;
+}
+
+.login-container input[type=submit] {
+    display: block;
+    width: 250px;
+    height: 40px;
+    margin: auto;
+    color: #333333;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2.5;
+    font-weight: bold;
+    background-color: #D2E8E7;
+    border-radius: 3px;
+    border: 1px none #000;
+}
+
+@media (max-width: 1025px) {
+    .login-container p.login-submit {
+        width: auto;
+        margin-top: 0px;
+        margin-left: 0;
+        text-align: center;
+        float: none;
+    }
+}
+
+.login-container input[type=submit]:hover {
+    opacity: 0.8;
+}
+
+.login-option {
+    display: flex;
+    margin-top: 10px;
+    width: auto;
+    justify-content: center;
+}
+
+.login-option p {
+    margin-right: 20px;
+}
+
+/*-------------------------
+    トップ
+-------------------------*/
+.g-head-welcome {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    margin: auto;
+    /* border-top: 1px solid #cccccc; */
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+    height: 35px;
+    text-align: center;
+}
+
+@media (max-width: 1025px) {
+    .g-head-welcome {
+        width: auto;
+        height: 100px;
+        /* overflow: visible; */
+    }
+}
+
+.g-head-welcome h2 {
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 20%;
+
+}
+
+@media (max-width: 1025px) {
+    .g-head-welcome h2 {
+        text-align: left;
+    }
+}
+
+.g-head-welcome p {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 15%;
+    text-align: right;
+
+}
+
+.g-head-welcome a {
+    text-decoration: none;
+}
+
+.global-nav ul {
+    margin-top: 5px;
+}
+
+.global-nav li.nav-user {
+    font-weight: bold;
+    position: absolute;
+    left: 18%;
+}
+
+@media (max-width: 1025px) {
+    .global-nav li.nav-user {
+        position: static;
+        margin-right: 0;
+    }
+}
+
+/*-------------------------
+    カート
+-------------------------*/
+
+.cart-container {
+    width: 1000px;
+    margin: auto;
+}
+
+@media (max-width: 1025px) {
+    .cart-container {
+        width: auto;
+    }
+}
+
+.cart-main {
+    width: 700px;
+    margin: auto;
+    border-left: 1px solid #cccccc;
+    float: right;
+}
+
+@media (max-width: 1025px) {
+    .cart-main {
+        width: auto;
+        border-left: 0px solid #cccccc;
+        float: none;
+    }
+}
+
+.cart-item {
+    height: 350px;
+    margin: 20px 5px 5px 10px;
+    overflow-y: scroll;
+}
+
+.cart-item img {
+    width: 100px;
+}
+
+@media (max-width: 1025px) {
+    .cart-item {
+        height: auto;
+        margin: 5px 0 20px 0;
+    }
+}
+
+.cart-main h2 {
+    width: 100%;
+    margin: 10px 0 0 10px;
+    border-bottom: 5px solid #cccccc;
+}
+
+.cart-main h2 span.error {
+    color: #f93333;
+    font-size: 0.7em;
+    padding: 9px 0 0 30px;
+}
+
+@media (max-width: 1025px) {
+    .cart-main h2 {
+        width: 85%;
+        margin: 20px auto 20px;
+    }
+}
+
+.cart-main p.not-product-cart {
+    font-size: 1.4em;
+    text-align: center;
+    margin-top: 100px;
+}
+
+@media (max-width: 1025px) {
+    .cart-main p {
+        margin-bottom: 100px;
+    }
+}
+
+.cart-container table {
+    width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 1025px) {
+    .cart-container table {
+        width: 80%;
+    }
+}
+
+.cart-container th,
+.cart-container td {
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    text-align: center;
+}
+
+.cart-container th:last-child,
+.cart-container td:last-child {
+    border-right: 0px solid;
+}
+
+.cart-container tr:last-child th,
+.cart-container tr:last-child td {
+    border-bottom: 0px solid;
+}
+
+.cart-main th:nth-child(1),
+.cart-main td:nth-child(1) {
+    width: 10%;
+}
+
+.cart-main th:nth-child(2),
+.cart-main td:nth-child(2) {
+    width: 10%;
+}
+
+.cart-main th:nth-child(3),
+.cart-main td:nth-child(3) {
+    width: 30%;
+}
+
+.cart-main th:nth-child(4),
+.cart-main td:nth-child(4) {
+    width: 10%;
+}
+
+.cart-main th:nth-child(5),
+.cart-main td:nth-child(5) {
+    width: 12%;
+}
+
+.cart-main th:nth-child(6),
+.cart-main td:nth-child(6) {
+    width: 12%;
+}
+
+td .cart-delete {
+    margin-bottom: 0;
+}
+
+td .cart-delete button {
+    margin: auto;
+    width: 60px;
+    height: 35px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    line-height: 2;
+    border-radius: 3px;
+    border: 0px none;
+    background-color: #dddddd;
+}
+
+td .cart-delete button:hover {
+    opacity: 0.7;
+}
+
+td .item-num {
+    margin: 0;
+}
+
+.item-num input[type="number"] {
+    width: 55px;
+    height: 30px;
+    font-size: 1.2em;
+    font-weight: normal;
+    text-align: center;
+}
+
+.item-num input[type="submit"] {
+    margin-top: 5px;
+    padding: 0 3px 0 3px;
+    width: 40px;
+    height: 25px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1;
+    border-radius: 3px;
+    border: 0px none;
+    background-color: #dddddd;
+}
+
+.item-num input[type="submit"]:hover {
+    opacity: 0.7;
+}
+
+.cart-option {
+    width: 500px;
+    height: 30px;
+    margin: 10px 0 0 50px;
+    float: left;
+}
+
+@media (max-width: 1025px) {
+    .cart-option {
+        width: 80%;
+        margin: 10px auto 20px auto;
+        text-align: center;
+        float: none;
+    }
+}
+
+.cart-option a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cart-option button {
+    display: block;
+    margin: 0 20px 10px 0;
+    float: left;
+    width: 150px;
+    height: 35px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    line-height: 2.5;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 0px none;
+}
+
+@media (max-width: 1025px) {
+    .cart-option button {
+        display: inline;
+        width: 48%;
+        height: 40px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 1025px) {
+    .cart-option button:first-child {
+        margin-right: 4%;
+    }
+}
+
+.cart-option button:hover {
+    opacity: 0.7;
+}
+
+.cart-option button.option-delete-all {
+    color: #ffffff;
+    background-color: #DC143C;
+}
+
+
+.cart-option button.option-more-select {
+    color: #ffffff;
+    background-color: #F37421;
+}
+
+
+
+.cart-option form {
+    margin-bottom: 0;
+}
+
+.cart-accounting {
+    width: 300px;
+    text-align: center;
+    float: left;
+}
+
+@media (max-width: 1025px) {
+    .cart-accounting {
+        width: 80%;
+        margin: auto;
+        float: none;
+    }
+}
+
+.cart-accounting li {
+    list-style-type: none;
+}
+
+.cart-register {
+    margin-top: 10px;
+}
+
+.cart-register li button {
+    display: block;
+    width: 250px;
+    height: 40px;
+    margin: auto;
+    color: #333333;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2.5;
+    font-weight: bold;
+    background-color: #D2E8E7;
+    border-radius: 3px;
+    border: 1px none #000;
+}
+
+.cart-register li button:hover {
+    opacity: 0.7;
+}
+
+li.cart-empty-product {
+    display: block;
+    width: 250px;
+    height: 40px;
+    margin: auto;
+    color: #333333;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2.5;
+    font-weight: bold;
+    background-color: #cccccc;
+    border-radius: 3px;
+    border: 1px none #000;
+}
+
+li.cart-empty-payment {
+    display: block;
+    width: 250px;
+    height: 40px;
+    margin: auto;
+    color: #333333;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 2.5;
+    font-weight: bold;
+    background-color: #FFEE33;
+    border-radius: 3px;
+    border: 1px none #000;
+}
+
+@media (max-width: 1025px) {
+
+    .cart-register li button,
+    li.cart-empty-product,
+    li.cart-empty-payment {
+        width: 100%;
+        float: none;
+    }
+}
+
+.cart-empty-payment-message {
+    height: 45px;
+    width: 250px;
+    margin: 5px auto 0 auto;
+    color: #F93333;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+@media (max-width: 900px) {
+    .cart-empty-payment-message {
+        height: auto;
+        width: auto;
+        margin: 5px auto 5px auto;
+        color: #F93333;
+        text-align: center;
+    }
+}
+
+.cart-empty-payment-message span.new-line:after {
+    content: "\A";
+    white-space: pre;
+}
+
+@media (max-width: 900px) {
+    .cart-empty-payment-message span.new-line:after {
+        content: "";
+        white-space: normal;
+    }
+}
+
+.cart-register a:hover {
+    opacity: 0.7;
+}
+
+.cart-price {
+    width: 250px;
+    height: 240px;
+    margin: auto;
+    border: 1px solid #333333;
+    border-radius: 3px;
+}
+
+@media (max-width: 1025px) {
+    .cart-price {
+        width: auto;
+    }
+}
+
+.cart-price h2 {
+    border-bottom: 1px dashed #cccccc;
+    margin-bottom: 30px;
+}
+
+.cart-price ul {
+    padding: 0;
+}
+
+.cart-price li {
+    margin: auto;
+    border-bottom: 1px solid #cccccc;
+    width: 200px;
+    height: 25px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+@media (max-width: 1025px) {
+    .cart-price li {
+        width: 80%;
+    }
+}
+
+.cart-price span.left {
+    text-align: left;
+    width: 60px;
+}
+
+.cart-price span.right {
+    display: block;
+    text-align: right;
+}
+
+.cart-price li.strong {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+@media (max-width: 1025px) {
+    .cart-price span.right {
+        /* display: inline; */
+        text-align: right;
+        float: right;
+    }
+}
+
+/*-------------------------
+    カート確認画面
+-------------------------*/
+.cart-edit h2 {
+    width: 100%;
+    display: flex;
+    margin: 10px 0 0 10px;
+    border-bottom: 5px solid #cccccc;
+    text-shadow: 1px 2px 1px #dddddd;
+}
+
+.cart-edit-item,
+.cart-edit-shipping,
+.cart-edit-payment,
+.cart-edit-bill {
+    width: 80%;
+    margin: 15px auto 30px auto;
+}
+
+.cart-edit-payment {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 1025px) {
+
+    .cart-edit-item,
+    .cart-edit-shipping,
+    .cart-edit-payment,
+    .cart-edit-bill {
+        width: 95%;
+    }
+}
+
+@media (max-width: 1025px) {
+
+    .cart-edit-item table,
+    .cart-edit-shipping table,
+    .cart-edit-payment table,
+    .cart-edit-bill table {
+        width: 100%;
+    }
+}
+
+.cart-edit-shipping th,
+.cart-edit-payment th,
+.cart-edit-bill th {
+    width: 20%;
+    border: 0px solid;
+}
+
+.cart-edit-shipping td,
+.cart-edit-payment td,
+.cart-edit-bill td {
+    border: 0px solid;
+    text-align: left;
+}
+
+.cart-edit-shipping tr,
+.cart-edit-payment tr,
+.cart-edit-bill tr {
+    border-bottom: 1px solid #999999;
+    height: 50px;
+}
+
+.borderless tr {
+    border-bottom: 0px hidden;
+}
+
+tr.borderless {
+    border-bottom: 0px hidden;
+}
+
+.cart-edit-item tr {
+    height: 85px;
+}
+
+.cart-edit-item tr:first-child {
+    height: 40px;
+}
+
+.cart-edit-item th:first-child {
+    width: 15%;
+}
+
+.cart-edit-item th:nth-child(2) {
+    width: 40%;
+}
+
+.cart-edit-item tr:last-child,
+.cart-edit-item tr:nth-last-child(2),
+.cart-edit-item tr:nth-last-child(3) {
+    height: 40px;
+}
+
+.cart-edit-item img {
+    width: 100px;
+}
+
+.cart-edit-shipping .edit-postal {
+    width: 70px;
+}
+
+.cart-edit-shipping .search-address {
+    width: 150px;
+    height: 30px;
+    color: #333333;
+    text-decoration: none;
+    text-align: right;
+    font-size: 12px;
+    background-color: #cccccc;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+}
+
+.cart-edit-shipping select {
+    width: 100px;
+    height: 30px;
+}
+
+.cart-edit-shipping .edit-city {
+    width: 200px;
+}
+
+.cart-edit-shipping .edit-address,
+.cart-edit-shipping .edit-other {
+    width: 250px;
+}
+
+.cart-edit-shipping .edit-tel {
+    width: 70px;
+}
+
+.cart-edit-shipping span {
+    font-size: 1.2em;
+    margin: 0 7px 0 7px;
+}
+
+span.shipping-change-message {
+    font-size: .6em;
+    padding: 12px 0 0 20px;
+    text-shadow: none;
+}
+
+.new-shipping td.space {
+    width: 60px;
+}
+
+.new-shipping span.shipping-error {
+    font-size: .9em;
+    color: #f93333;
+    text-align: left;
+    vertical-align: sub;
+}
+
+.cart-edit-payment p {
+    width: 90%;
+    height: 10px;
+    margin: auto;
+    margin-bottom: 0px;
+}
+
+.cart-edit-payment td label {
+    padding-top: 6px;
+    padding-right: 20px;
+}
+
+.cart-edit-payment span.shipping-error {
+    font-size: .9em;
+    color: #f93333;
+    text-align: left;
+    vertical-align: sub;
+}
+
+.cart-edit-payment td {
+    font-size: 1em;
+}
+
+.cart-edit-shipping td .postal-code-error {
+    width: 250px;
+    height: 30px;
+    font-size: 12px;
+    color: #f93333;
+    text-align: center;
+    vertical-align: sub;
+    margin-bottom: 0;
+    line-height: 3;
+}
+
+.new-shipping td.small {
+    width: 60px;
+    font-size: 12px;
+}
+
+.new-shipping .intable td.small li {
+    list-style: none;
+}
+
+.new-shipping input[type="text"],
+.new-shipping option {
+    height: 30px;
+    font-size: 1.1em;
+}
+
+.cart-edit ul {
+    margin: 0;
+    padding: 0;
+}
+
+.cart-edit ul li {
+    height: 50px;
+    line-height: 3.5;
+}
+
+.cart-edit-submit {
+
+}
+
+.cart-edit-submit,
+.cart-conf-submit {
+    text-align: center;
+}
+
+.cart-conf-submit input[type="submit"],
+.cart-edit-submit input[type="submit"] {
+    width: 200px;
+    height: 40px;
+    color: #333333;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    background-color: #cccccc;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+}
+
+.cart-conf-submit input[type="submit"].sell,
+.cart-edit-submit input[type="submit"].conf {
+    background-color: #D2E8E7;
+    border: 1px solid #D2E8E7;
+}
+
+.cart-edit-submit input[type="submit"].submit-error {
+    background-color: #DC143C;
+    border: 1px solid #DC143C;
+    color: #cccccc;
+    opacity: 0.7;
+}
+
+.cart-edit-submit p {
+    height: 20px;
+    margin: 0 0 10px 0;
+}
+
+.cart-edit-submit p.submit-error span {
+    color: #f93333;
+    font-weight: bold;
+    /* text-align: left; */
+    /* vertical-align: sub; */
+}
+
+.cart-conf-submit input[type="submit"]:hover,
+.cart-edit-submit input[type="submit"]:hover {
+    opacity: 0.7;
+}
+
+.cart-done {
+    height: 200px;
+}
+
+.cart-done p.order-thanks {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 60px 0 20px 0;
+    text-align: center;
+}
+
+.cart-done p.order-mail {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #333333;
+    line-height: 2;
+    text-align: center;
+}
+
+.cart-done p span:before {
+    Content: "\A";
+    white-space: pre;
+}
+
+/*-------------------------
+    エラー
+-------------------------*/
+
+.error-container {
+    width: 1000px;
+    height: 350px;
+    margin: auto;
+    border-top: 1px solid #cccccc;
+}
+
+@media (max-width: 1025px) {
+    .error-container {
+        width: auto;
+    }
+}
+
+.error-container p {
+    margin: 150px 0 0 0;
+    text-align: center;
+    color: #f93333;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.error-container span {
+    font-weight: normal;
+    font-size: 0.7em;
+    color: #333333;
+    line-height: 2;
+}
+
+.error-container span:before {
+    Content: "\A";
+    white-space: pre;
+}

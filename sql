@@ -105,7 +105,7 @@ CREATE TABLE sub_categoryies (
     delete_flg BOOLEAN DEFAULT FALSE
 );
 
-
+テスtp
 
 ユーザーテーブル構成
 id //自動連番のid

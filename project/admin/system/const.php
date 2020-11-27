@@ -48,4 +48,4 @@ const ERROR_WORD = [
 メール送信元
  */
 //購入していただいたお客様に自動送信するメールアドレス
-define('SALE_MAIL_ADDRESS', 'rockin.yamada@gmail.com');
+define('SALE_MAIL_ADDRESS', 'admin@example.com');

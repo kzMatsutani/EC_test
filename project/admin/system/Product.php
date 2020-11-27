@@ -128,7 +128,13 @@ class Product extends Model
         }
     }
 
-    //商品データ単体の取得
+
+    /**
+     * 商品単体の取得
+     *
+     * @param [int] $id
+     * @return array|false
+     */
     public function getProduct($id)
     {
         try {
@@ -152,7 +158,11 @@ class Product extends Model
         }
     }
 
-    //
+    /**
+     * カテゴリーの取得
+     *
+     * @return array|false
+     */
     public function getCategoryList()
     {
         try {
@@ -166,6 +176,26 @@ class Product extends Model
                     . ' categories cate'
                 . ' WHERE '
                     . ' cate.delete_flg = 0 '
+            ;
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC | PDO::FETCH_UNIQUE);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function getSalesStatusList()
+    {
+        try {
+            //データベースに接続
+            parent::connect();
+            $sql =
+                ' SELECT '
+                    . ' sst.* , '
+                    . ' sst.id '
+                . ' FROM '
+                    . ' sales_status sst'
             ;
             $stmt = $this->dbh->prepare($sql);
             $stmt->execute();

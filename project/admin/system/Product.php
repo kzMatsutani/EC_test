@@ -15,6 +15,8 @@ class Product extends Model
                     . ' img1 , '
                     . ' qty , '
                     . ' point , '
+                    . ' public_status , '
+                    . ' sales_status , '
                     . ' DATE_FORMAT(created_at, \'%Y-%m-%d %k:%i:%s\') AS created_at , '
                     . ' DATE_FORMAT(updated_at, \'%Y-%m-%d %k:%i:%s\') AS updated_at '
                 . ' FROM '
@@ -52,7 +54,7 @@ class Product extends Model
     }
 
     //商品の検索
-    public function searchProduct($name, $price1, $price2, $payment)
+    public function searchProduct($name, $price1, $price2, $category)
     {
         try {
             //データベースに接続
@@ -95,9 +97,9 @@ class Product extends Model
                 $sql .= ' AND ' . implode(' AND ' , $where);
             }
             //現在の支払い方法の全てを取得しIDが一致するかのチェック
-            $payment_id = $this->getPaymentList();
-            foreach ($payment as $val) {
-                if (!empty($payment_id[$val])) {
+            $category_id = $this->getcategoryList();
+            foreach ($category as $val) {
+                if (!empty($category_id[$val])) {
                     $cash[] = ' ? ';
                     $param[] = ['value' => $val, 'param' => PDO::PARAM_INT];
                 }
@@ -150,8 +152,30 @@ class Product extends Model
         }
     }
 
-    //全支払情報の取得、商品idを引数に指定した場合は対象の商品に選択された支払情報のstatusを1とする
-    public function getPaymentList($product_id = NULL)
+    //
+    public function getCategoryList()
+    {
+        try {
+            //データベースに接続
+            parent::connect();
+            $sql =
+                ' SELECT '
+                    . ' cate.* , '
+                    . ' cate.id '
+                . ' FROM '
+                    . ' categories cate'
+                . ' WHERE '
+                    . ' cate.delete_flg = 0 '
+            ;
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC | PDO::FETCH_UNIQUE);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function testtt($product_id = NULL)
     {
         try {
             //データベースに接続
@@ -174,13 +198,14 @@ class Product extends Model
                         . ' ELSE 0 '
                     . ' END AS status '
                 . ' FROM '
-                    . ' m_payment mp '
+                    . ' categories '
             ;
             $stmt = $this->dbh->prepare($sql);
             $stmt->execute([$product_id]);
             return $stmt->fetchAll(PDO::FETCH_ASSOC | PDO::FETCH_UNIQUE);
         } catch (PDOException $e) {
-            return false;
+            // return false;
+            var_dump($e);
         }
     }
 

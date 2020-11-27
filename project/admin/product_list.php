@@ -21,11 +21,13 @@ if (($product_list = $product->getProductList($column, $order)) === false) {
     exit;
 }
 
-//支払い方法情報の取得
-// if (!($payment = $product->getPaymentList())) {
-//     header('Location: error.php?message=fail&word=getPayment');
-//     exit;
-// }
+//カテゴリー取得
+if (($categories = $product->getCategoryList()) === false) {
+    header('Location: error.php?message=fail&word=getPayment');
+    exit;
+}
+
+//サブカテゴリ取得
 
 //商品検索
 if (isset($_GET['name'])) {
@@ -35,6 +37,7 @@ if (isset($_GET['name'])) {
         exit;
     }
 }
+
 ?>
 
 <!-- ヘッダー -->
@@ -60,16 +63,25 @@ if (isset($_GET['name'])) {
                             </td>
                         </tr>
                         <tr>
-                            <th>支払い方法</th>
+                            <th>カテゴリー</th>
                             <td>
-                                <?php $i = 0; ?>
-                                <?php foreach ($payment as $val) : ?>
-                                    <label><input type="checkbox" name="payment[<?=$val['id']?>]" value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' checked': ''?>><?=$val['name']?></label>
-                                    <?php $i += 1; ?>
-                                    <?php if ($i % 2 == 0) : ?>
-                                        <br>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                                <select name="category">
+                                    <option value="" ?>未選択
+                                    <?php foreach ($categories as $val) : ?>
+                                        <option value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' selected': ''?>><?=$val['name']?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>サブカテゴリ</th>
+                            <td>
+                                <select name="category">
+                                    <option value="" ?>未選択
+                                    <?php foreach ($categories as $val) : ?>
+                                        <option value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' selected': ''?>><?=$val['name']?>
+                                    <?php endforeach; ?>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -100,7 +112,7 @@ if (isset($_GET['name'])) {
                             <td class="nowrap"><?=h($item['id'])?></td>
                             <td class="nowrap"><?=h($item['name'])?></td>
                             <td class="nowrap"><?=h(number_format($item['price']))?></td>
-                            <td><?=$item['img'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img'] . '" width="150">' : ''; ?></td>
+                            <td><?=$item['img1'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img1'] . '" width="150">' : ''; ?></td>
                             <td><?=h($item['created_at'])?></td>
                             <td><?=isset($item['updated_at']) ? h($item['updated_at']) : '' ?></td>
                             <td>

@@ -9,11 +9,11 @@ class LoginAdmin extends Model
             parent::connect();
             $sql =
                     ' SELECT '
-                        . ' login_id , '
-                        . ' login_pass, '
+                        . ' login_id, '
+                        . ' password, '
                         . ' name '
                     . ' FROM '
-                        . '  admin_user '
+                        . '  admins '
                     . ' WHERE '
                         . '  login_id = ? '
                     . ' AND '
@@ -28,7 +28,7 @@ class LoginAdmin extends Model
         if ($admin == false) {
             return 'そのようなIDは存在しません';
         }
-        if ($admin['login_pass'] != $pass) {
+        if (!password_verify($pass, $admin['password'])) {
             return 'パスワードが正しくありません';
         }
         session_regenerate_id();

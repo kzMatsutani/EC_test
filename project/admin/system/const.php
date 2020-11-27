@@ -1,11 +1,4 @@
 <?php
-/*
-テストのローカルホスト用
-*/
-define('HOST', 'localhost');
-define('DBNAME', 'EC_test');
-define('DBUSER', 'root');
-define('DBPASS', '');
 //イメージの絶対パス
 define('ABSOLUTE_PRODUCT_IMAGE_PATH', '/Applications/XAMPP/htdocs/EC/project/img/product/');
 

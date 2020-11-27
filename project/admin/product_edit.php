@@ -13,9 +13,13 @@ if (!empty($_POST['uploadImg'])) {
 
 //支払情報の取得
 $id = isset($_GET['id']) ? $_GET['id'] : '';
+if (($categories = $product->getCategoryList()) === false) {
+    header('Location: error.php?message=fail&word=getPayment');
+    exit;
+}
 
 //DBから取得した支払い方法の選択を置き換え、POSTが存在すればPOSTを代入。
-$selected_payment = !empty($_POST['selected_payment']) ? $_POST['selected_payment'] : array_column($payment, 'status', 'id');
+// $selected_payment = !empty($_POST['selected_payment']) ? $_POST['selected_payment'] : array_column($payment, 'status', 'id');
 
 //$itemに空配列を初期値として設定
 $item = [];
@@ -73,8 +77,14 @@ $item = $_POST + $item;
                         <td><textarea name="body"><?=isset($item['body']) ? h($item['body']) : ''?></textarea></td>
                     </tr>
                     <tr>
-                        <th>支払い方法</th>
+                        <th>カテゴリー</th>
                         <td>
+                        <select name="category">
+                            <option value="" ?>未選択
+                            <?php foreach ($categories as $val) : ?>
+                                <option value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' selected': ''?>><?=$val['name']?>
+                            <?php endforeach; ?>
+                        </select>
                             <!-- <?php foreach ($payment as $val) :?>
                                 <label><input type="checkbox" name="selected_payment[<?=$val['id']?>]" value="1"<?=isset($selected_payment[$val['id']]) && $selected_payment[$val['id']] == 1 ? ' checked' : ''?>><?=$val['name']?></label>
                             <?php endforeach; ?> -->

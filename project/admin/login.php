@@ -24,20 +24,14 @@ if (!empty($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>冬瓜ダイエット 桜物産 管理画面トップ</title>
+    <title>管理画面トップ</title>
     <!-- stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap-reboot.min.css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="jquery.photoswipe.js"></script>
-    <script type="text/javascript"></script>
-    <script src="breakpoints.js"></script>
-    <script src="jquery.marquee.js"></script>
 </head>
 <body>
     <div class="login">
-        <h1>冬瓜ダイエット専門店  桜物産  管理画面ログイン</h1>
+        <h1>管理画面ログイン</h1>
         <p class="error"><span><?=isset($error) ? $error : ''?></span></p>
         <form action="" method="post">
             <table>

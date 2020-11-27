@@ -10,12 +10,24 @@ name //ログイン者の名前　必要?
 CREATE TABLE admins (
     id SERIAL PRIMARY KEY,
     login_id VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    password text NOT NULL,
     email TEXT NOT NULL,
     name VARCHAR(30) NOT NULL,
     created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
     updated_at TIMESTAMP(6) NULL DEFAULT NULL,
     delete_flg BOOLEAN DEFAULT FALSE
+);
+
+INSERT INTO admins (
+    login_id,
+    password,
+    email,
+    name
+) VALUES (
+    'admin',
+    '$2y$10$JxJJ8hmi8925nSkQpCj2luYMzfP0qbCXhpFYFT8woMtJd91rPgWJC',
+    'admin@example.com',
+    'アドミン'
 );
 
 
@@ -82,7 +94,15 @@ CREATE TABLE categories (
     created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
     updated_at TIMESTAMP(6) NULL DEFAULT NULL,
     delete_flg BOOLEAN DEFAULT FALSE
-)
+);
+
+INSERT INTO categories (
+    name,
+    public_status
+) VALUES (
+    'Youtuber',
+    '1'
+);
 
 sub_categoriesテーブル構成
 id //自動連番

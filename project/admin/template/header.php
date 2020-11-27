@@ -13,17 +13,18 @@
 <header class="admgl-header">
     <div class="container">
         <section class="admgl-top">
-            <h2><?=h($_SESSION['name'])?>さん、ご機嫌いかがですか？</h2>
+            <h2>ログインネーム : <?=h($_SESSION['name'])?></h2>
             <p> <a href="logout.php">ログアウトする</a></p>
         </section>
         <nav class="admgl-nav">
             <ul>
-                <li><a href="top" class="top">top</a></li>
-                <li><a href="product_list" class="trainee-management">商品管理</a></li>
-                <li><a href="sales_management_list" class="trainee-task">売上管理</a></li>
-                <li><a href="category_list" class="trainee-skill">支払い方法管理</a></li>
-                <li><a href="#" class="communication">コミュニケーション管理</a></li>
-                <li><a href="#" class="admin-management">管理者管理</a></li>
+                <li><a href="top">top</a></li>
+                <li><a href="product_list">商品管理</a></li>
+                <li><a href="image_list">画像管理</a></li>
+                <li><a href="sales_management_list">売上管理</a></li>
+                <li><a href="category_list">カテゴリー管理</a></li>
+                <li><a href="user_list">ユーザー管理</a></li>
+                <li><a href="contact_list">問い合わせ管理</a></li>
             </ul>
         </nav>
     </div>

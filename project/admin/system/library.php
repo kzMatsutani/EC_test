@@ -3,6 +3,7 @@ session_start();
 //定数
 require_once('const.php');
 //データベース接続系
+require_once('dbConst.php');
 require_once('Model.php');
 //メール送信
 require_once('SendMail.php');

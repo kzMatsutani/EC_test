@@ -11,12 +11,20 @@ if (!empty($_POST['uploadImg'])) {
     $error = $product->uploadProductImage($_FILES['img'], $_POST['id']);
 }
 
-//支払情報の取得
+//カテゴリーの取得
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 if (($categories = $product->getCategoryList()) === false) {
     header('Location: error.php?message=fail&word=getPayment');
     exit;
 }
+
+//販売状況の取得
+if (($sales_status = $product->getSalesStatusList()) === false) {
+    header('Location: error.php');
+    exit;
+}
+
+
 
 //DBから取得した支払い方法の選択を置き換え、POSTが存在すればPOSTを代入。
 // $selected_payment = !empty($_POST['selected_payment']) ? $_POST['selected_payment'] : array_column($payment, 'status', 'id');
@@ -58,19 +66,35 @@ $item = $_POST + $item;
                     </tr>
                     <tr>
                         <th>ポイント</th>
-                        <td><input type="text" name="point" value="<?=isset($item['point']) ? h($item['point']) : ''?>"></td>
+                        <td><input type="number" name="point" value="<?=isset($item['point']) ? h($item['point']) : ''?>"></td>
                     </tr>
                     <tr>
                         <th>出荷目安</th>
-                        <td><input type="text" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
+                        <td><input type="number" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
                     </tr>
                     <tr>
                         <th>掲載状況</th>
-                        <td><input type="text" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
+                        <td>
+                            <label>
+                                <input type="radio" name="public_status" value="0"<?=isset($item['public_status']) && $item['public_status'] == 0 ? ' checked' : ''?>>
+                                非掲載
+                            </label>
+                            <label>
+                                <input type="radio" name="public_status" value="1"<?=isset($item['public_status']) && $item['public_status'] == '1' ? ' checked' : ''?>>
+                                掲載
+                            </label>
+                        </td>
                     </tr>
                     <tr>
                         <th>販売状況</th>
-                        <td><input type="text" name="shipping" value="<?=isset($item['shipping']) ? h($item['shipping']) : ''?>"></td>
+                        <td>
+                            <?php foreach ($sales_status as $value) : ?>
+                                <label>
+                                    <input type="radio" name="salse_status" value="<?=$value['name']?>"<?=isset($item['public_status']) && $item['public_status'] == $value['id'] ? ' checked' : ''?>>
+                                    <?=$value['name']?>
+                                </label>
+                            <?php endforeach; ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>説明文</th>

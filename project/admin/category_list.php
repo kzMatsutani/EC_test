@@ -4,7 +4,7 @@ require_once('system/library.php');
 confirmAuthAdmin();
 
 $category = new Product();
-$category_list = $category->getPaymentList();
+$category_list = $category->getCategoryList();
 
 ?>
 

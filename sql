@@ -1,5 +1,6 @@
 CREATE DATABASE EC_test CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+******************************************
 管理ユーザーテーブル構成
 id //自動連番のID
 login_id //ログインフォームで入力確認するid 文字数は?
@@ -30,7 +31,7 @@ INSERT INTO admins (
     'アドミン'
 );
 
-
+******************************************
 productsテーブル構成
 id //自動連番のID
 name //商品名
@@ -41,10 +42,10 @@ body //商品詳細コメント
 qty //在庫数　smallint?
 point //ポイント
 shipping //出荷目安日
-category //カテゴリ
-sub_category //サブカテゴリ
+category //カテゴリ 外部キーが必要?
+sub_category //サブカテゴリ 外部キーが必要?
 public_status //掲載状況 0でメイン非掲載 1でメイン掲載
-sales_status //販売状況 0で販売中　1で売り切れ中　2で予約受付中　3で
+sales_status //販売状況 0で販売中　1で売り切れ中　2で予約受付中　　sales_status.idと外部キー成約を結ぶべき？
 created_at //作成日時
 updated_at //更新日時
 delete_flg //論理削除
@@ -75,8 +76,25 @@ CREATE TABLE products (
 
 INSERT INTO products
 (name, price, title, body, qty, point, shipping, public_status, sales_status)
-VALUES ('test', 1000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1);
+VALUES
+('テスト', 2000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('なにか', 1000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('tett', 5000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('補完', 200, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('DVD', 11100, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('缶バッジ', 5000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('人形', 9000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('CD', 10000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('ほうじ茶', 12000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('水', 15000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('ノート', 12000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('メモ帳', 23000, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('コード', 300, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('ギター', 200, 'タイトル', 'ボディ', 10, 20, 3, 1, 1),
+('コンセント', 100, 'タイトル', 'ボディ', 10, 20, 3, 1, 1);
 
+
+******************************************
 categoriesテーブル情報
 id //自動連番
 name //カテゴリー名
@@ -103,11 +121,11 @@ INSERT INTO categories (
     'Youtuber',
     '1'
 );
-
+******************************************
 sub_categoriesテーブル構成
 id //自動連番
 name //サブカテゴリー名
-category_id //親カテゴリーid
+category_id //親カテゴリーid     外部キーは必要?
 img //カテゴリーバナー
 public_status //掲載状況 0でメイン非掲載 1でメイン掲載
 created_at //作成日時
@@ -125,8 +143,58 @@ CREATE TABLE sub_categoryies (
     delete_flg BOOLEAN DEFAULT FALSE
 );
 
-テスtp
 
+******************************************
+sales_statusテーブル構成
+id // productと紐づくid  productと外部キー成約を結ぶべき？
+name //
+sub_name //HTMLクラス用
+
+CREATE TABLE sales_status (
+    id TINYINT NOT NULL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    sub_name VARCHAR(30)
+);
+
+INSERT INTO sales_status VALUES
+(0, '売り切れ中' , 'sold-out'),
+(1, '販売中' , 'now_sale'),
+(2, '販売予定' , 'plan'),
+(99, '予約受付中' , 'reservation');
+
+******************************************
+
+contactテーブル構成
+id //自動連番のid
+name // 投稿者の名前
+email //　メールアドレス
+member_id// 会員id(ログイン済みであれば自動取得) 、未ログイン者は0
+title //内容の種類
+other_title //その他の種類
+message //本文
+status //返信状況  0は未対応　1は対応中　99は対応完了
+
+
+CREATE TABLE contacts (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    email TEXT NOT NULL,
+    member_id VARCHAR(30) NOT NULL,
+    title TINYINT NOT NULL,
+    other_title TEXT,
+    message TEXT NOT NULL,
+    status TINYINT NOT NULL,
+    created_at TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+    updated_at TIMESTAMP(6) NULL DEFAULT NULL,
+    delete_flg BOOLEAN DEFAULT FALSE
+)
+
+******************************************
+
+
+
+
+******************************************
 ユーザーテーブル構成
 id //自動連番のid
 password //ログイン時のパスワード

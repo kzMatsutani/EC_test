@@ -5,6 +5,8 @@ confirmAuthAdmin();
 $product = new Product();
 //GETパラメータが不適切な値の場合はエラー画面へ
 $product->checkProductEditType();
+//トークン生成
+$_SESSION['productToken'] = getToken();
 
 //画像アップロードする場合
 if (!empty($_POST['uploadImg'])) {
@@ -23,11 +25,6 @@ if (($sales_status = $product->getSalesStatusList()) === false) {
     header('Location: error.php');
     exit;
 }
-
-
-
-//DBから取得した支払い方法の選択を置き換え、POSTが存在すればPOSTを代入。
-// $selected_payment = !empty($_POST['selected_payment']) ? $_POST['selected_payment'] : array_column($payment, 'status', 'id');
 
 //$itemに空配列を初期値として設定
 $item = [];
@@ -51,6 +48,8 @@ $item = $_POST + $item;
                 <button type="submit" disabled><?php getPage() ?></button>
             </section>
             <form action="product_conf.php?type=<?=$_GET['type']?><?=!empty($_GET['id']) ? '&id=' . $_GET['id'] : ''?>" method="post">
+                <!-- トークン埋め込み -->
+                <input type="hidden" name="productToken" value="<?=$_SESSION['productToken']?>">
                 <table>
                     <tr>
                         <th>商品名</th>
@@ -76,11 +75,11 @@ $item = $_POST + $item;
                         <th>掲載状況</th>
                         <td>
                             <label>
-                                <input type="radio" name="public_status" value="0"<?=isset($item['public_status']) && $item['public_status'] == 0 ? ' checked' : ''?>>
+                                <input type="radio" name="public_status" value="0" checked>
                                 非掲載
                             </label>
                             <label>
-                                <input type="radio" name="public_status" value="1"<?=isset($item['public_status']) && $item['public_status'] == '1' ? ' checked' : ''?>>
+                                <input type="radio" name="public_status" value="1"<?=isset($item['public_status']) && $item['public_status'] == 1 ? ' checked' : ''?>>
                                 掲載
                             </label>
                         </td>
@@ -90,29 +89,30 @@ $item = $_POST + $item;
                         <td>
                             <?php foreach ($sales_status as $value) : ?>
                                 <label>
-                                    <input type="radio" name="salse_status" value="<?=$value['name']?>"<?=isset($item['public_status']) && $item['public_status'] == $value['id'] ? ' checked' : ''?>>
+                                    <input type="radio" name="sales_status" value="<?=$value['id']?>"
+                                        <?=(isset($item['sales_status']) && $item['sales_status'] == $value['id']) || $value['id'] == 0 ? ' checked' : ''?>>
                                     <?=$value['name']?>
                                 </label>
                             <?php endforeach; ?>
                         </td>
                     </tr>
                     <tr>
-                        <th>説明文</th>
-                        <td><textarea name="body"><?=isset($item['body']) ? h($item['body']) : ''?></textarea></td>
-                    </tr>
-                    <tr>
                         <th>カテゴリー</th>
                         <td>
                         <select name="category">
-                            <option value="" ?>未選択
+                            <option value="0" ?>未選択
                             <?php foreach ($categories as $val) : ?>
-                                <option value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' selected': ''?>><?=$val['name']?>
+                                <option value="<?=$val['id']?>"<?=isset($item['category']) && $item['category'] == $val['id'] ? ' selected': ''?>><?=$val['name']?>
                             <?php endforeach; ?>
                         </select>
                             <!-- <?php foreach ($payment as $val) :?>
                                 <label><input type="checkbox" name="selected_payment[<?=$val['id']?>]" value="1"<?=isset($selected_payment[$val['id']]) && $selected_payment[$val['id']] == 1 ? ' checked' : ''?>><?=$val['name']?></label>
                             <?php endforeach; ?> -->
                         </td>
+                    </tr>
+                    <tr>
+                        <th>説明文</th>
+                        <td><textarea name="body"><?=isset($item['body']) ? h($item['body']) : ''?></textarea></td>
                     </tr>
                 </table>
                 <p><input type="submit" name="edit" value="確認画面へ"></p>

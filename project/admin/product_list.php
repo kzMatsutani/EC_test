@@ -20,6 +20,7 @@ if (($product_list = $product->getProductList($column, $order)) === false) {
     header('Location: error.php?message=fail&word=getProductList');
     exit;
 }
+$count = $product->getCountProducts();
 
 //カテゴリー取得
 if (($categories = $product->getCategoryList()) === false) {
@@ -31,11 +32,11 @@ if (($categories = $product->getCategoryList()) === false) {
 
 //商品検索
 if (isset($_GET['name'])) {
-    $selected_payment = isset($_GET['payment']) ? $_GET['payment'] : [0 => 0];
-    if (($product_list = $product->searchProduct($_GET['name'], $_GET['price'], $_GET['price2'], $selected_payment)) === false) {
+    if (($product_list = $product->searchProduct($_GET['name'], $_GET['price'], $_GET['price2'], $_GET['category'])) === false) {
         header('Location: error.php?message=fail&word=searchProduct');
         exit;
     }
+    $count = $product->getCountProducts($_GET['name'], $_GET['price'], $_GET['price2'], $_GET['category']);
 }
 
 ?>
@@ -68,7 +69,7 @@ if (isset($_GET['name'])) {
                                 <select name="category">
                                     <option value="" ?>未選択
                                     <?php foreach ($categories as $val) : ?>
-                                        <option value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' selected': ''?>><?=$val['name']?>
+                                        <option value="<?=$val['id']?>"<?=isset($_GET['category']) && $_GET['category']  == $val['id'] ? ' selected': ''?>><?=$val['name']?>
                                     <?php endforeach; ?>
                                 </select>
                             </td>
@@ -76,7 +77,7 @@ if (isset($_GET['name'])) {
                         <tr>
                             <th>サブカテゴリ</th>
                             <td>
-                                <select name="category">
+                                <select name="sub_category">
                                     <option value="" ?>未選択
                                     <?php foreach ($categories as $val) : ?>
                                         <option value="<?=$val['id']?>"<?=isset($_GET['payment'][$val['id']]) ? ' selected': ''?>><?=$val['name']?>
@@ -91,16 +92,21 @@ if (isset($_GET['name'])) {
                 </form>
             </section>
         </div>
+        <p><?=$count['count']?>件ヒットしました</p>
         <section class="product-table">
             <table>
                 <tr>
-                    <td><a href="product_list.php?column=id&order=ASC">▲</a><br>ID<br><a href="product_list.php?column=id&order=DESC">▼</a></td>
-                    <td><a href="product_list.php?column=name&order=ASC">▲</a><br>商品名<br><a href="product_list.php?column=name&order=DESC">▼</a></td>
-                    <td><a href="product_list.php?column=price&order=ASC">▲</a><br>価格<br><a href="product_list.php?column=price&order=DESC">▼</a></td>
+                    <td>
+                        <a href="product_list?column=id&order=ASC">">▲</a>
+                        <br>ID<br>
+                        <a href="product_list?column=id&order=DESC">▼</a>
+                    </td>
+                    <td><a href="product_list?column=name&order=ASC">▲</a><br>商品名<br><a href="product_list?column=name&order=DESC">▼</a></td>
+                    <td><a href="product_list?column=price&order=ASC">▲</a><br>価格<br><a href="product_list?column=price&order=DESC">▼</a></td>
                     <td>画像</td>
-                    <td><a href="product_list.php?column=created_at&order=ASC">▲</a><br>登録日時<br><a href="product_list.php?column=created_at&order=DESC">▼</a></td>
-                    <td><a href="product_list.php?column=updated_at&order=ASC">▲</a><br>更新日時<br><a href="product_list.php?column=updated_at&order=DESC">▼</a></td>
-                    <td><a href="product_edit.php?type=create"><button type="button">新規登録</button></a></td>
+                    <td><a href="product_list?column=created_at&order=ASC">▲</a><br>登録日時<br><a href="product_list?column=created_at&order=DESC">▼</a></td>
+                    <td><a href="product_list?column=updated_at&order=ASC">▲</a><br>更新日時<br><a href="product_list?column=updated_at&order=DESC">▼</a></td>
+                    <td><a href="product_edit?type=create"><button type="button">新規登録</button></a></td>
                 </tr>
                 <?php if (empty($product_list)) : ?>
                     <tr>
@@ -116,7 +122,7 @@ if (isset($_GET['name'])) {
                             <td><?=h($item['created_at'])?></td>
                             <td><?=isset($item['updated_at']) ? h($item['updated_at']) : '' ?></td>
                             <td>
-                                <a href="product_edit.php?type=update&id=<?=h($item['id'])?>"><button type="button" id="btn">編集</button></a>
+                                <a href="product_edit?type=update&id=<?=h($item['id'])?>"><button type="button" id="btn">編集</button></a>
                                 <form action="" method="post">
                                     <button type="submit" name="delete" value="<?=$item['id']?>" onclick="return deleteProductCart('<?=h($item['id'])?>', '<?=h($item['name'])?>')">削除</button>
                                 </form>

@@ -2,7 +2,7 @@
 class Product extends Model
 {
     //商品データ一覧の取得
-    public function getProductList($column = NULL, $order = NULL)
+    public function getProductList($column = NULL, $order = NULL, $page = 0, $limit = 10)
     {
         try {
             //データベースに接続
@@ -24,30 +24,90 @@ class Product extends Model
                 . ' WHERE '
                     . ' delete_flg = 0 '
             ;
-            //引数の配列に入っているはずのワードのバリデーション
-            $vali = ['id', 'name', 'price', 'created_at', 'updated_at'];
-            $sort = ['ASC', 'DESC'];
-            if (in_array($column, $vali) && in_array($order, $sort)) {
-                $sql .=
-                    ' ORDER BY '
-                        . $column
-                        . ' IS NULL ASC , '
-                        . $column
-                        . ' = \'\' ASC , '
-                        . $column
-                        . ' '
-                        . $order
-                        . ' , '
-                        . ' id DESC '
-                ;
-            } else {
-                $sql .=
-                    ' ORDER BY '
-                        . ' id DESC '
-                ;
-            }
-            $stmt = $this->dbh->query($sql);
+            //ソート
+            $sql .= $this->sortProductAdmin($column, $order);
+            $sql .= ' LIMIT ? , ? ';
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->bindValue(1, $page, PDO::PARAM_INT);
+            $stmt->bindValue(2, $limit, PDO::PARAM_INT);
+            $stmt->execute();
             return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            // return false;
+            var_dump($e);
+        }
+    }
+
+    /**
+     * admin/product_listページ用のソート
+     *
+     * @param [string] $column
+     * @param [string] $order
+     * @return string
+     */
+    public function sortProductAdmin($column, $order)
+    {
+        $vali = ['id', 'name', 'price', 'created_at', 'updated_at'];
+        $sort = ['ASC', 'DESC'];
+        if (in_array($column, $vali) && in_array($order, $sort)) {
+            return
+                ' ORDER BY '
+                    . $column
+                    . ' IS NULL ASC , '
+                    . $column
+                    . ' = \'\' ASC , '
+                    . $column
+                    . ' '
+                    . $order
+                    . ' , '
+                    . ' id DESC '
+            ;
+        } else {
+            return ' ORDER BY id DESC ';
+        }
+    }
+
+    //商品件数の取得
+    public function getCountProducts($name = null, $price1 = null, $price2 = null, $category = null)
+    {
+        try {
+             //データベースに接続
+            parent::connect();
+            $where = [];
+            $param = [];
+            $sql =
+                ' SELECT '
+                    . ' count(pr.id) as count'
+                . ' FROM '
+                    . ' products pr'
+                . ' WHERE '
+                    . ' pr.delete_flg = 0 '
+            ;
+            if (!empty($name)) {
+                $where[] = ' pr.name LIKE ? ';
+                $param[] = ['value' => '%' . $name . '%', 'param' => PDO::PARAM_STR];
+            }
+            if (!empty($price1)) {
+                $where[] = ' pr.price >= ? ';
+                $param[] = ['value' => $price1, 'param' => PDO::PARAM_INT];
+            }
+            if (!empty($price2)) {
+                $where[] = ' pr.price <= ? ';
+                $param[] = ['value' => $price2, 'param' => PDO::PARAM_INT];
+            }
+            if (!empty($category)) {
+                $where[] = ' pr.category = ? ';
+                $param[] = ['value' => $category, 'param' => PDO::PARAM_INT];
+            }
+            if (!empty($where)) {
+                $sql .= ' AND ' . implode(' AND ' , $where);
+            }
+            $stmt = $this->dbh->prepare($sql);
+            for ($i = 1; $i <= count($param); $i++) {
+                $stmt->bindValue($i, $param[$i - 1]['value'], $param[$i - 1]['param']);
+            }
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             return false;
         }
@@ -65,19 +125,16 @@ class Product extends Model
                 ' SELECT '
                     . ' pr.id , '
                     . ' pr.name , '
-                    . ' pr.sub_name , '
-                    . ' pr.day , '
                     . ' pr.price , '
-                    . ' pr.img , '
-                    . ' pr.description , '
+                    . ' pr.img1 , '
+                    . ' pr.qty , '
+                    . ' pr.point , '
+                    . ' pr.public_status , '
+                    . ' pr.sales_status , '
                     . ' DATE_FORMAT(pr.created_at, \'%Y-%m-%d %k:%i:%s\') AS created_at , '
                     . ' DATE_FORMAT(pr.updated_at, \'%Y-%m-%d %k:%i:%s\') AS updated_at '
                 . ' FROM '
                     . ' products pr '
-                . ' LEFT JOIN '
-                    . ' product_payment pp '
-                . ' ON '
-                    . ' pr.id = pp.product_id '
                 . ' WHERE '
                     . ' delete_flg = 0 '
             ;
@@ -93,25 +150,12 @@ class Product extends Model
                 $where[] = ' pr.price <= ? ';
                 $param[] = ['value' => $price2, 'param' => PDO::PARAM_INT];
             }
+            if (!empty($category)) {
+                $where[] = ' pr.category = ? ';
+                $param[] = ['value' => $category, 'param' => PDO::PARAM_INT];
+            }
             if (!empty($where)) {
                 $sql .= ' AND ' . implode(' AND ' , $where);
-            }
-            //現在の支払い方法の全てを取得しIDが一致するかのチェック
-            $category_id = $this->getcategoryList();
-            foreach ($category as $val) {
-                if (!empty($category_id[$val])) {
-                    $cash[] = ' ? ';
-                    $param[] = ['value' => $val, 'param' => PDO::PARAM_INT];
-                }
-            }
-            if (!empty($cash)) {
-                $sql .=
-                    ' AND '
-                        . ' pp.payment_id '
-                    . ' IN ( '
-                        . implode(' , ', $cash)
-                    . ' ) '
-                ;
             }
             $sql .=
                 ' GROUP BY '
@@ -124,7 +168,8 @@ class Product extends Model
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (PDOException $e) {
-            return false;
+            // return false;
+            var_dump($e);
         }
     }
 
@@ -152,7 +197,7 @@ class Product extends Model
             ;
             $stmt = $this->dbh->prepare($sql);
             $stmt->execute([$id]);
-            return $stmt->fetch();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             return false;
         }
@@ -267,7 +312,7 @@ class Product extends Model
 
 
     //商品編集
-    public function updateProduct($id, $name, $sub_name, $day, $price, $description, $selected_payment)
+    public function updateProduct($id, $post)
     {
         try {
             //データベースに接続
@@ -278,10 +323,14 @@ class Product extends Model
                     . ' products '
                 . ' SET '
                     . ' name = ? , '
-                    . ' sub_name = ? , '
-                    . ' day =  ? , '
-                    . ' price =  ? , '
-                    . ' description = ? , '
+                    . ' price = ? , '
+                    . ' point =  ? , '
+                    . ' shipping =  ? , '
+                    . ' public_status = ? , '
+                    . ' sales_status = ? , '
+                    . ' category = ? , '
+                    . ' title = ? , '
+                    . ' body = ? , '
                     . ' updated_at = NOW(6) '
                 . ' WHERE '
                     . ' id = ? '
@@ -290,37 +339,18 @@ class Product extends Model
             $this->dbh->exec('SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED');
             $this->dbh->beginTransaction();
             $stmt = $this->dbh->prepare($sql);
-            $stmt->execute([$name, $sub_name, $day, $price, $description, $id]);
-            //指定商品の支払い方法の削除
-            $sql =
-                ' DELETE '
-                . ' FROM  '
-                    . ' product_payment '
-                . ' WHERE '
-                    . ' product_id = ? '
-            ;
-            $stmt = $this->dbh->prepare($sql);
-            $stmt->execute([$id]);
-            //現在の全ての支払い方法を取得
-            if (($payment = $this->getPaymentList()) === false) {
-                throw new PDOException;
-            }
-            //支払い方法が選択されており支払い方法のIDが実際に存在していれば再登録
-            if (!empty($selected_payment)) {
-                foreach ($selected_payment as $key => $value) {
-                    if (!empty($payment[$key])) {
-                        $sql =
-                            ' INSERT INTO product_payment '
-                            . ' VALUES ( '
-                                . ' ? ,'
-                                . ' ? '
-                            . ' ) '
-                        ;
-                        $stmt = $this->dbh->prepare($sql);
-                        $stmt->execute([$id, $key]);
-                    }
-                }
-            }
+            $stmt->execute([
+                $post['name'],
+                $post['price'],
+                $post['point'],
+                $post['shipping'],
+                $post['public_status'],
+                $post['sales_status'],
+                $post['category'],
+                $post['title'],
+                $post['body'],
+                $id]
+            );
             $this->dbh->commit();
             return true;
         } catch (PDOException $e) {

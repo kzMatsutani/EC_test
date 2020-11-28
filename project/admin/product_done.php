@@ -5,7 +5,8 @@ confirmAuthAdmin();
 $product = new Product();
 //GETパラメータが不適切な値の場合はエラー画面へ
 $product->checkProductEditType();
-$selected_payment = isset($_POST['selected_payment']) ? $_POST['selected_payment'] : '';
+//トークンが生成されていなければエラー画面へ
+productAuthToken($_POST['productToken']);
 
 //商品の新規登録(GETパラメーターがcreate)
 if (!empty($_POST['update']) && $_GET['type'] == 'create') {
@@ -17,7 +18,7 @@ if (!empty($_POST['update']) && $_GET['type'] == 'create') {
 
 //商品データの更新(GETパラメーターがupdate)
 if (!empty($_POST['update']) && $_GET['type'] == 'update') {
-    if (!($product->updateProduct($_GET['id'], $_POST['name'], $_POST['sub_name'], $_POST['day'], $_POST['price'], $_POST['description'], $selected_payment))) {
+    if (!($product->updateProduct($_GET['id'], $_POST))) {
         header('Location: error.php?message=fail&word=updateProduct');
         exit;
     }

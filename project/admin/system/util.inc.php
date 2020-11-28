@@ -38,7 +38,8 @@ function confirmAuthUserTop()
 function getPage()
 {
     //URIの取得
-    $path = pathinfo($_SERVER['REQUEST_URI']);
+    $path = $_SERVER['SCRIPT_NAME'];
+
     $first_word = [
         'top'     => '管理トップ',
         'product' => '商品',
@@ -64,8 +65,10 @@ function getPage()
         ''      => ''
     ];
     $type = $type_word[isset($_GET['type']) ? $_GET['type'] : ''];
-    $second = substr(strrchr($path['filename'], '_'), 0);
-    $first = str_replace($second, '', $path['filename']);
+    $path = substr(strrchr($path, '/'), 1);
+    $path = substr($path, 0, -4);
+    $second = substr(strrchr($path, '_'), 0);
+    $first = str_replace($second, '', $path);
     echo $first_word[$first] . $type . $second_word[$second];
 }
 
@@ -83,10 +86,19 @@ function getToken()
     return hash('sha256',session_id() . microtime(true));
 }
 
+
 //トークンが生成されていなかった場合はエラー画面へ遷移
 function authToken($postToken)
 {
     if (empty($_SESSION['token']) || $_SESSION['token'] != $postToken) {
+        header('Location: error.php?message=transition');
+        exit;
+    }
+}
+//プロダクト作成時のtoken
+function productAuthToken($postToken)
+{
+    if (empty($_SESSION['productToken']) || $_SESSION['productToken'] != $postToken) {
         header('Location: error.php?message=transition');
         exit;
     }

@@ -26,6 +26,12 @@ if (($sales_status = $product->getSalesStatusList()) === false) {
     exit;
 }
 
+//画像削除ボタンが押されたとき
+if (!empty($_POST['delete_image'])) {
+    $product->deleteProductImage($_GET['id'], $_POST['delete_image']);
+}
+
+
 //$itemに空配列を初期値として設定
 $item = [];
 //商品編集の場合は$itemに商品データを追加
@@ -37,6 +43,7 @@ if (!empty($_GET['id'])) {
 }
 //再編集で戻ってきた場合はPOSTを優先して代入
 $item = $_POST + $item;
+
 ?>
 
 <!-- ヘッダー -->
@@ -58,6 +65,10 @@ $item = $_POST + $item;
                     <tr>
                         <th>価格</th>
                         <td><input type="text" name="price" value="<?=isset($item['price']) ? h($item['price']) : ''?>"></td>
+                    </tr>
+                    <tr>
+                        <th>在庫数</th>
+                        <td><input type="text" name="qty" value="<?=isset($item['qty']) ? h($item['qty']) : ''?>"></td>
                     </tr>
                     <tr>
                         <th>タイトル</th>
@@ -105,9 +116,6 @@ $item = $_POST + $item;
                                 <option value="<?=$val['id']?>"<?=isset($item['category']) && $item['category'] == $val['id'] ? ' selected': ''?>><?=$val['name']?>
                             <?php endforeach; ?>
                         </select>
-                            <!-- <?php foreach ($payment as $val) :?>
-                                <label><input type="checkbox" name="selected_payment[<?=$val['id']?>]" value="1"<?=isset($selected_payment[$val['id']]) && $selected_payment[$val['id']] == 1 ? ' checked' : ''?>><?=$val['name']?></label>
-                            <?php endforeach; ?> -->
                         </td>
                     </tr>
                     <tr>
@@ -120,33 +128,61 @@ $item = $_POST + $item;
         </section>
         <?php if (($_GET['type'] == 'update')) :?>
             <section class="img-edit">
-                <p class="error"><span><?=!empty($error) ? $error : ''?></span></p>
-                <form action="" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?=$item['id']?>">
-                    <table>
-                        <tr>
-                            <td>商品画像</td>
-                        </tr>
-                        <tr>
-                            <td class="img">
-                                <?=!empty($item['img']) ? '<img src=' . ADMIN_PRODUCT_IMAGE_PATH . $item['img'] . '>' : ''?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="file" name="img"></td>
-                        </tr>
-                    </table>
-                    <p><input type="submit" class="img-submit" name="uploadImg" value="画像アップロード" onclick="return editClick()"></p>
-                </form>
+                <table>
+                    <tr>
+                        <th colspan="5">商品画像</th>
+                    </tr>
+                    <tr>
+                        <td>画像1</td>
+                        <td>画像2</td>
+                        <td>画像3</td>
+                        <td>画像4</td>
+                        <td>画像5</td>
+                    </tr>
+                    <tr>
+                        <td><?= $item['img1'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img1'] . '" width="100">' : ''; ?></td>
+                        <td><?= $item['img2'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img2'] . '" width="100">' : ''; ?></td>
+                        <td><?= $item['img3'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img3'] . '" width="100">' : ''; ?></td>
+                        <td><?= $item['img4'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img4'] . '" width="100">' : ''; ?></td>
+                        <td><?= $item['img5'] ? '<img src="' . ADMIN_PRODUCT_IMAGE_PATH . $item['img5'] . '" width="100">' : ''; ?></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form action="" method="post">
+                                <button type="submit" name="delete_image" value="img1" onclick="return deleteProductImage('1')" <?= isset($item['img1']) ? '' : 'disabled';?>>削除</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <button type="submit" name="delete_image" value="img2" onclick="return deleteProductImage('2')" <?= isset($item['img2']) ? '' : 'disabled';?>>削除</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <button type="submit" name="delete_image" value="img3" onclick="return deleteProductImage('3')" <?= isset($item['img3']) ? '' : 'disabled';?>>削除</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <button type="submit" name="delete_image" value="img4" onclick="return deleteProductImage('4')" <?= isset($item['img4']) ? '' : 'disabled';?>>削除</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" method="post">
+                                <button type="submit" name="delete_image" value="img5" onclick="return deleteProductImage('5')" <?= isset($item['img5']) ? '' : 'disabled';?>>削除</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                </table>
             </section>
         <?php endif; ?>
     </div>
 </main>
 <script>
     'use strict'
-    function editClick()
-    {
-        let result = window.confirm('画像をアップロードしてもよろしいですか？')
+    function deleteProductImage(number) {
+        let result = window.confirm('画像' + number + 'を削除してもよろしいですか?')
         if (result) {
             return true
         } else {

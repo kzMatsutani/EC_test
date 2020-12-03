@@ -21,11 +21,6 @@ if (($sales_status = $product->getSalesStatusList()) === false) {
     exit;
 }
 
-echo '<pre>';
-var_dump($_POST['category']);
-echo '</pre>';
-
-
 ?>
 
 <!-- ヘッダー -->
@@ -36,11 +31,12 @@ echo '</pre>';
             <section class="btn">
                 <button type="submit" disabled><?php getPage() ?></button>
             </section>
-            <form action="product_done.php?type=<?=$_GET['type']?><?=!empty($_GET['id']) ? '&id='. $_GET['id'] : ''?>" method="post">
+            <form action="product_done.php?type=<?=$_GET['type']?><?=!empty($_GET['id']) ? '&id='. $_GET['id'] : ''?>" method="post" enctype="multipart/form-data">
                 <!-- トークン埋め込み -->
                 <input type="hidden" name="productToken" value="<?=$_SESSION['productToken']?>">
                 <input type="hidden" name="name" value="<?=h($_POST['name'])?>">
                 <input type="hidden" name="price" value="<?=h($_POST['price'])?>">
+                <input type="hidden" name="qty" value="<?=h($_POST['qty'])?>">
                 <input type="hidden" name="point" value="<?=h($_POST['point'])?>">
                 <input type="hidden" name="shipping" value="<?=h($_POST['shipping'])?>">
                 <input type="hidden" name="public_status" value="<?=h($_POST['public_status'])?>">
@@ -86,6 +82,26 @@ echo '</pre>';
                     <tr>
                         <th>商品説明</th>
                         <td><?=nl2br(h($_POST['body']))?></td>
+                    </tr>
+                    <tr>
+                        <th>画像1</th>
+                        <td><input type="file" name="img1"></td>
+                    </tr>
+                    <tr>
+                        <th>画像2</th>
+                        <td><input type="file" name="img2"></td>
+                    </tr>
+                    <tr>
+                        <th>画像3</th>
+                        <td><input type="file" name="img3"></td>
+                    </tr>
+                    <tr>
+                        <th>画像4</th>
+                        <td><input type="file" name="img4"></td>
+                    </tr>
+                    <tr>
+                        <th>画像5</th>
+                        <td><input type="file" name="img5"></td>
                     </tr>
                 </table>
                 <p>

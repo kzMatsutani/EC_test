@@ -159,3 +159,15 @@ function getPref($num = NULL)
     ];
     return isset($num) ? $pref[$num] : $pref;
 }
+
+
+function sortValidation($keyword)
+{
+    $validate = [
+        'created_ASC',
+        'created_DESC',
+        'price_ASC',
+        'price_DESC',
+    ];
+    return !empty($validate[$keyword]) ? $validate[$keyword] : 'created_DESC';
+}
